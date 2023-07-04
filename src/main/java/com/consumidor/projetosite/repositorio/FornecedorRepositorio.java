@@ -1,4 +1,7 @@
 package com.consumidor.projetosite.repositorio;
 
-public interface FornecedorRepositorio {
+import com.consumidor.projetosite.modelo.Fornecedor;
+import org.springframework.data.repository.CrudRepository;
+
+public interface FornecedorRepositorio extends CrudRepository<Fornecedor, Long> {
 }

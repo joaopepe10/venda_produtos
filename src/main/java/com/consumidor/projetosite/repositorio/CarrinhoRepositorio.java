@@ -1,4 +1,7 @@
 package com.consumidor.projetosite.repositorio;
 
-public interface CarrinhoRepositorio {
+import com.consumidor.projetosite.modelo.Carrinho;
+import org.springframework.data.repository.CrudRepository;
+
+public interface CarrinhoRepositorio extends CrudRepository<Carrinho, Long> {
 }

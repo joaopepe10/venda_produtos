@@ -1,4 +1,7 @@
 package com.consumidor.projetosite.repositorio;
 
-public interface EstoqueRepositorio {
+import com.consumidor.projetosite.modelo.Estoque;
+import org.springframework.data.repository.CrudRepository;
+
+public interface EstoqueRepositorio extends CrudRepository<Estoque, Long> {
 }
