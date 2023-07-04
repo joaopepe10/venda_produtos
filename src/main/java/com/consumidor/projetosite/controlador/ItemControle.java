@@ -19,4 +19,9 @@ public class ItemControle {
     public ResponseEntity<?> cadastrar(@RequestBody Item item){
         return itemServico.cadastrarItem(item);
     }
+
+    @GetMapping("/listar")
+    public String listar(){
+        return itemServico.listarItens();
+    }
 }

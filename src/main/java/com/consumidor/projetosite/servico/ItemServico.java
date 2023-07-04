@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemServico {
     @Autowired
@@ -14,5 +16,16 @@ public class ItemServico {
 
     public ResponseEntity<?> cadastrarItem(Item item){
         return new ResponseEntity<>(itemRepositorio.save(item), HttpStatus.CREATED);
+    }
+
+    public String listarItens(){
+        List<Item> itens = itemRepositorio.findAll();
+        String inf = "";
+        for (Item i: itens){
+            inf += "Codigo do Produto: " + i.getId_item() +
+                    "Nome Produto: " + i.getNome_item() +
+                    "Preco Produto: " + i.getPreco_item();
+        }
+        return inf;
     }
 }
