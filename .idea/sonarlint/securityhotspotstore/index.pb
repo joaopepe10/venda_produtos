@@ -2,17 +2,9 @@
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 y
-Isrc/main/java/com/consumidor/projetosite/controlador/EstoqueControle.java,3\f\3f1802b51c9ccc29178bbf5599f563b5dc5e5152
-y
 Isrc/main/java/com/consumidor/projetosite/controlador/UsuarioControle.java,6\a\6a2851801b25977db5aad5778e52237f12286635
-z
-Jsrc/main/java/com/consumidor/projetosite/controlador/CarrinhoControle.java,6\0\60c590685d37faede92e3c5524a47ad5c053c76f
 u
 Esrc/main/java/com/consumidor/projetosite/servico/CarrinhoServico.java,9\c\9cba5d353608f47e95597c7cb3c7b901e404cf9d
-t
-Dsrc/main/java/com/consumidor/projetosite/servico/ProdutoServico.java,9\8\98e2a8faf433ced87844c127c51f4a21ba505e0f
-t
-Dsrc/main/java/com/consumidor/projetosite/servico/EstoqueServico.java,b\4\b40de6133df702b477a75d37c7a16b875287fb60
 t
 Dsrc/main/java/com/consumidor/projetosite/servico/UsuarioServico.java,8\b\8b650a7e1560c7e59e3d36623ed14d4264898c9c
 w

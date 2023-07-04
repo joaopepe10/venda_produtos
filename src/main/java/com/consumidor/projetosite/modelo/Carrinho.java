@@ -14,7 +14,9 @@ public class Carrinho {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_carrinho;
+
     //UM CARRINHO PARA VARIOS PRODUTOS
+    @Autowired
     @OneToMany
     List<Produto> produtos;
 

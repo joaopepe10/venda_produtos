@@ -1,17 +1,23 @@
 package com.consumidor.projetosite.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Getter
 @Setter
 @Entity
+@Component
 public class Estoque {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEstoque;
+    private Long id_estoque ;
+
+    @OneToMany
+    List<Produto> produtos_em_estoque;
+    public Estoque(){
+        setId_estoque(1l);
+    }
 }

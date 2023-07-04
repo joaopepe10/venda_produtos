@@ -13,13 +13,19 @@ public class Produto {
     private Long codigo;
 
     @Column(nullable = false)
-    private String nomeProduto;
+    private String nome_produto;
 
     @Column(nullable = false)
-    private Float precoProduto;
+    private Float preco_produto;
 
+    //VARIOS PRODUTOS NO CARRINHO
     @ManyToOne
-    @JoinColumn(name = "id_carrinhp_FK", referencedColumnName = "id_carrinho")
+    @JoinColumn(name = "id_carrinho_FK", referencedColumnName = "id_carrinho")
     private Carrinho carrinho;
+
+    //VARIOS PRODUTOS NO ESTOQUE
+    @ManyToOne
+    @JoinColumn(name = "id_estoque_FK", referencedColumnName = "id_estoque")
+    private Estoque estoque;
 
 }
