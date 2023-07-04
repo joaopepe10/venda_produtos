@@ -1,0 +1,9 @@
+
+9
+java:S1643"Use a StringBuilder instead.(åû¶ë8¨Ş’÷‘1
+H
+java:S1452"&Remove usage of generic wildcard type.(·«Øøÿÿÿÿ8¯Ş’÷‘1
+s
+java:S2159"VRemove this call to "equals"; comparisons between unrelated types always return false.(Î–¼¸8Ã¦“÷‘1
+H
+java:S1452$"&Remove usage of generic wildcard type.(ê€¼¨øÿÿÿÿ8²Ş’÷‘1

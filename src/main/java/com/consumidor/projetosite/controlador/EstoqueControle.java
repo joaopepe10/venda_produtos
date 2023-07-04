@@ -1,5 +1,6 @@
 package com.consumidor.projetosite.controlador;
 
+import com.consumidor.projetosite.modelo.Item;
 import com.consumidor.projetosite.modelo.Produto;
 import com.consumidor.projetosite.repositorio.EstoqueRepositorio;
 import com.consumidor.projetosite.servico.EstoqueServico;
@@ -19,7 +20,7 @@ public class EstoqueControle {
     private EstoqueServico estoqueServico;
 
     @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastro(@RequestBody Produto p){
+    public ResponseEntity<?> cadastro(@RequestBody Item p){
         return estoqueServico.adcProdutoEstoque(p);
     }
 }

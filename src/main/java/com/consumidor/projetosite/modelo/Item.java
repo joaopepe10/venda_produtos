@@ -17,4 +17,8 @@ public class Item {
 
     @Column(nullable = false)
     private Float preco_item;
+
+    @ManyToOne
+    @JoinColumn(name = "estoque_id")
+    private Estoque estoque;
 }

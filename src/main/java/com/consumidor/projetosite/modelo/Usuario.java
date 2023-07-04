@@ -18,4 +18,8 @@ public class Usuario {
     @Column(nullable = false)
     private String senhaUsuario;
 
+    @OneToOne
+    @JoinColumn(name = "id_carrinho_FK", referencedColumnName = "id_carrinho")
+    private Carrinho carrinho;
+
 }

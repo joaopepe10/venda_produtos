@@ -19,13 +19,13 @@ public class Produto {
     private Float preco_produto;
 
     //VARIOS PRODUTOS NO CARRINHO
-    @ManyToOne
-    @JoinColumn(name = "id_carrinho_FK", referencedColumnName = "id_carrinho")
-    private Carrinho carrinho;
+    /*@ManyToOne
+    @JoinColumn(name = "id_carrinho_FK", referencedColumnName = "id_carrinho", columnDefinition = "1")
+    private Carrinho carrinho;*/
 
     //VARIOS PRODUTOS NO ESTOQUE
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "id_estoque_FK", referencedColumnName = "id_estoque")
-    private Estoque estoque;
+    private Estoque estoque;*/
 
 }
