@@ -28,6 +28,20 @@ public class Estoque implements Serializable {
     @JsonIgnore
     List<Item> produtos = new ArrayList<>();
 
+    public Estoque() {
+    }
+
+    public Estoque(Long id_estoque, String categoria) {
+        this.id_estoque = id_estoque;
+        this.categoria = categoria;
+    }
+
+    public Estoque(Long id_estoque, String categoria, List<Item> produtos) {
+        this.id_estoque = id_estoque;
+        this.categoria = categoria;
+        this.produtos = produtos;
+    }
+
     public void setId_estoque(Long id_estoque) {
         this.id_estoque = id_estoque;
     }
