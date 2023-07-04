@@ -1,7 +1,6 @@
 package com.consumidor.projetosite.controlador;
 
 import com.consumidor.projetosite.modelo.Item;
-import com.consumidor.projetosite.modelo.Produto;
 import com.consumidor.projetosite.repositorio.EstoqueRepositorio;
 import com.consumidor.projetosite.servico.EstoqueServico;
 import org.springframework.beans.factory.annotation.Autowired;

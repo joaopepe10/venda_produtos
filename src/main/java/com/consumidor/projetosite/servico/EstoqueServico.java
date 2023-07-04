@@ -2,7 +2,6 @@ package com.consumidor.projetosite.servico;
 
 import com.consumidor.projetosite.modelo.Estoque;
 import com.consumidor.projetosite.modelo.Item;
-import com.consumidor.projetosite.modelo.Produto;
 import com.consumidor.projetosite.repositorio.EstoqueRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
