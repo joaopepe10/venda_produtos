@@ -15,10 +15,15 @@ public class ItemServico {
     private ItemRepositorio itemRepositorio;
 
     public ResponseEntity<?> cadastrarItem(Item item){
-        return new ResponseEntity<>(itemRepositorio.save(item), HttpStatus.CREATED);
+        if(item.getNome_item().equals("")){
+            return new ResponseEntity<>("Nome invalido!", HttpStatus.BAD_REQUEST);
+        } else if (item.getPreco_item() <= 0 || item.getPreco_item().equals("")) {
+            return new ResponseEntity<>("Preco invalido!", HttpStatus.BAD_REQUEST);
+        }else {
+            return new ResponseEntity<>(itemRepositorio.save(item), HttpStatus.CREATED);
+        }
     }
-
-    public String listarItens(){
+    public String listarItensFormatado(){
         List<Item> itens = itemRepositorio.findAll();
         String inf = "";
         for (Item i: itens){
@@ -27,5 +32,8 @@ public class ItemServico {
                     "Preco Produto: " + i.getPreco_item();
         }
         return inf;
+    }
+    public ResponseEntity<?> listar(){
+        return new ResponseEntity<>(itemRepositorio.findAll(),HttpStatus.OK);
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+//CRIANDO ROTA DO ITEM, E INFORMANDO AO SPRING QUE ESSE E UM CONTROLLER
 @RestController
 @RequestMapping("/item")
 public class ItemControle {
@@ -20,8 +21,13 @@ public class ItemControle {
         return itemServico.cadastrarItem(item);
     }
 
+    @GetMapping("/listar-formatado")
+    public String listarFormatado(){
+        return itemServico.listarItensFormatado();
+    }
+
     @GetMapping("/listar")
-    public String listar(){
-        return itemServico.listarItens();
+    public ResponseEntity<?> listar(){
+        return itemServico.listar();
     }
 }
