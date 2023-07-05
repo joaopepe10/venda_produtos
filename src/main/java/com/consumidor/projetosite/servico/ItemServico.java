@@ -33,7 +33,10 @@ public class ItemServico {
         }
         return inf;
     }
-    public ResponseEntity<?> listar(){
+    public ResponseEntity<?> findAll(){
         return new ResponseEntity<>(itemRepositorio.findAll(),HttpStatus.OK);
+    }
+    public ResponseEntity<?> findById(Long id){
+        return new ResponseEntity<>(itemRepositorio.findById(id),HttpStatus.OK);
     }
 }

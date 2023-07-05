@@ -24,6 +24,9 @@ public class Item implements Serializable {
     @Column(nullable = false)
     private Float preco_item;
 
+    @Column(nullable = false)
+    private Long quantidade_item;
+
     @ManyToOne
     @JoinColumn(name = "estoque_id")
     private Estoque estoque;
@@ -31,16 +34,11 @@ public class Item implements Serializable {
     public Item() {
     }
 
-    public Item(Long id_item, String nome_item, Float preco_item, Estoque estoque) {
-        this.id_item = id_item;
-        this.nome_item = nome_item;
-        this.preco_item = preco_item;
-        this.estoque = estoque;
-    }
-
-    public Item(Long id_item, String nome_item, Float preco_item) {
-        this.id_item = id_item;
-        this.nome_item = nome_item;
-        this.preco_item = preco_item;
+    public Item(Long id, String nome, Float preco, Long qtd,Estoque e) {
+        this.id_item = id;
+        this.nome_item = nome;
+        this.preco_item = preco;
+        this.quantidade_item = qtd;
+        this.estoque = e;
     }
 }

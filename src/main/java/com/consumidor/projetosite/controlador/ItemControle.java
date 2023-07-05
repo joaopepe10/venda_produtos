@@ -28,6 +28,11 @@ public class ItemControle {
 
     @GetMapping("/listar")
     public ResponseEntity<?> listar(){
-        return itemServico.listar();
+        return itemServico.findAll();
+    }
+
+    @GetMapping("/listar/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id){
+        return itemServico.findById(id);
     }
 }
