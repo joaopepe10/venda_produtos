@@ -25,7 +25,6 @@ public class Estoque implements Serializable {
 
     @OneToMany(mappedBy = "estoque")
     @Column(nullable = false)
-    @JsonIgnore
     List<Item> produtos = new ArrayList<>();
 
     public Estoque() {

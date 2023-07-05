@@ -25,4 +25,11 @@ public class EstoqueServico {
         estoque.getProdutos().add(item);
         return new ResponseEntity<>(estoqueRepositorio.save(estoque), HttpStatus.CREATED);
     }
+
+    public ResponseEntity<?> findAll(){
+        return new ResponseEntity<>(estoqueRepositorio.findAll(),HttpStatus.OK);
+    }
+    public ResponseEntity<?> findById(Long id){
+        return new ResponseEntity<>(estoqueRepositorio.findById(id),HttpStatus.OK);
+    }
 }

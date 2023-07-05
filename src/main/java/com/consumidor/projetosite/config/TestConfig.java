@@ -28,7 +28,7 @@ public class TestConfig implements CommandLineRunner {
         estoqueRepositorio.saveAll(Arrays.asList(e1, e2));
 
         Item i1 = new Item(null, "Celular", 1333.23f,23L ,e1);
-        Item i2 = new Item(null, "Tenis", 333.23f, 12L,e1);
+        Item i2 = new Item(null, "Tenis", 333.23f, 12L,e2);
 
         itemRepositorio.saveAll(Arrays.asList(i1,i2));
 
