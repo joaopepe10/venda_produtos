@@ -19,7 +19,8 @@ public class Estoque implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_estoque;
+    private Long id_estoque_PK;
+
     @Column(nullable = false)
     private String categoria;
 
@@ -31,18 +32,18 @@ public class Estoque implements Serializable {
     }
 
     public Estoque(Long id_estoque, String categoria) {
-        this.id_estoque = id_estoque;
+        this.id_estoque_PK = id_estoque;
         this.categoria = categoria;
     }
 
     public Estoque(Long id_estoque, String categoria, List<Item> produtos) {
-        this.id_estoque = id_estoque;
+        this.id_estoque_PK = id_estoque;
         this.categoria = categoria;
         this.produtos = produtos;
     }
 
     public void setId_estoque(Long id_estoque) {
-        this.id_estoque = id_estoque;
+        this.id_estoque_PK = id_estoque;
     }
 
     public void setCategoria(String categoria) {

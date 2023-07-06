@@ -27,7 +27,7 @@ public class ItemServico {
         List<Item> itens = itemRepositorio.findAll();
         String inf = "";
         for (Item i: itens){
-            inf += "Codigo do Produto: " + i.getId_item() +
+            inf += "Codigo do Produto: " + i.getId_item_PK() +
                     "Nome Produto: " + i.getNome_item() +
                     "Preco Produto: " + i.getPreco_item();
         }

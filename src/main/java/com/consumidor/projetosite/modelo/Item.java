@@ -17,7 +17,7 @@ public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_item;
+    private Long id_item_PK;
 
     @Column(nullable = false)
     private String nome_item;
@@ -29,7 +29,7 @@ public class Item implements Serializable {
     private Long quantidade_item;
 
     @ManyToOne
-    @JoinColumn(name = "estoque_id")
+    @JoinColumn(name = "estoque_id_FK")
     @JsonIgnore
     private Estoque estoque;
 
@@ -37,7 +37,7 @@ public class Item implements Serializable {
     }
 
     public Item(Long id, String nome, Float preco, Long qtd,Estoque e) {
-        this.id_item = id;
+        this.id_item_PK = id;
         this.nome_item = nome;
         this.preco_item = preco;
         this.quantidade_item = qtd;
