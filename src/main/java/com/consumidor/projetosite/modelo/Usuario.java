@@ -50,6 +50,17 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
+    public Usuario(Long id_user_PK, String nome_usuario, String sobrenome_usuario, String senha, Integer dia, Integer mes, Integer ano, Endereco endereco) {
+        this.id_user_PK = id_user_PK;
+        this.nome_usuario = nome_usuario;
+        this.sobrenome_usuario = sobrenome_usuario;
+        this.senha = senha;
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+        this.endereco = endereco;
+    }
+
     public Usuario(Long id_user_PK, String nome_usuario,
                    String sobrenome_usuario, String senha,
                    Integer dia, Integer mes, Integer ano, String rua,

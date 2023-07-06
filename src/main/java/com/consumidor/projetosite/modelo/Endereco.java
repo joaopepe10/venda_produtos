@@ -1,8 +1,6 @@
 package com.consumidor.projetosite.modelo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +9,7 @@ import lombok.Setter;
 @Entity
 public class Endereco {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_endereco_PK;
     private String rua;
     private String bairro;
@@ -20,4 +19,15 @@ public class Endereco {
    @OneToOne(mappedBy = "endereco")
     private Usuario usuario;
 
+    public Endereco() {
+    }
+
+    public Endereco(String rua, String bairro, String numero, String cep) {
+        this.id_endereco_PK = null;
+        this.rua = rua;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.cep = cep;
+
+    }
 }
