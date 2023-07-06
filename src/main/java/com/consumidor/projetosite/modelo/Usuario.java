@@ -1,5 +1,6 @@
 package com.consumidor.projetosite.modelo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,7 +37,8 @@ public class Usuario implements Serializable {
     @Column(nullable = false)
     private Integer ano;
 
-    @Column(nullable = false)
+    @OneToOne
+    @JoinColumn(name = "id_endereco_FK", referencedColumnName = "id_endereco_PK")
     private Endereco endereco;
 
     public Usuario() {
