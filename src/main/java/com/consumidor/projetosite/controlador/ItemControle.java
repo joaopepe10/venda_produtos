@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/item")
 public class ItemControle {
-    @Autowired
-    private ItemRepositorio itemRepositorio;
+
     @Autowired
     private ItemServico itemServico;
 

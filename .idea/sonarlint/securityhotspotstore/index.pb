@@ -9,3 +9,9 @@ y
 Isrc/main/java/com/consumidor/projetosite/repositorio/ItemRepositorio.java,b\9\b943b669f548e7c14bb33c607a9da8527c128259
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+w
+G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
+Å
+Q.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,2\c\2cabb939da04d3de3a200bf2b575690e1a16316d
+}
+Msrc/main/java/com/consumidor/projetosite/repositorio/EnderecoRepositorio.java,f\0\f0d6d6e0fa8b889c10b7589ff5cca5cc40b40c70
