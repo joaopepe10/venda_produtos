@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @Service
@@ -18,12 +18,13 @@ public class EstoqueServico {
 
 
     public ResponseEntity<?> adcProdutoEstoque(Item item){
-        Estoque estoque = new Estoque();
-        List<Item>produtos = new ArrayList<>();
-
-        produtos.add(item);
+        Estoque estoque =  new Estoque();
         estoque.getProdutos().add(item);
         return new ResponseEntity<>(estoqueRepositorio.save(estoque), HttpStatus.CREATED);
+    }
+
+    public ResponseEntity<?> findByProdutosId(Long id){
+        return new ResponseEntity<>(estoqueRepositorio.findByProdutosId(id), HttpStatus.OK);
     }
 
     public ResponseEntity<?> findAll(){

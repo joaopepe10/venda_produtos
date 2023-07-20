@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -15,8 +16,7 @@ public class Endereco implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_endereco_PK;
 
     @Column(nullable = false)
@@ -45,5 +45,17 @@ public class Endereco implements Serializable {
         this.numero = numero;
         this.cep = cep;
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Endereco endereco)) return false;
+        return Objects.equals(getId_endereco_PK(), endereco.getId_endereco_PK()) && Objects.equals(getRua(), endereco.getRua()) && Objects.equals(getBairro(), endereco.getBairro()) && Objects.equals(getNumero(), endereco.getNumero()) && Objects.equals(getCep(), endereco.getCep()) && Objects.equals(getUsuario(), endereco.getUsuario());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId_endereco_PK());
     }
 }

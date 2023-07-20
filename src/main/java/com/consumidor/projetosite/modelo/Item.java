@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Getter
@@ -15,32 +16,57 @@ public class Item implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_item_PK;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_item_PK")
+    private Long id;
 
-    @Column(nullable = false)
-    private String nome_item;
+    @Column(name = "nome_item", nullable = false)
+    private String nome;
 
-    @Column(nullable = false)
-    private Float preco_item;
+    @Column( name = "preco_item",nullable = false)
+    private Float preco;
 
-    @Column(nullable = false)
-    private Long quantidade_item;
+    @Column(nullable = false, name = "quantidade_item")
+    private Long quantidade;
 
     @ManyToOne
-    @JoinColumn(name = "estoque_id_FK")
-    @JsonIgnore
+    @JoinColumn(name = "id_estoque_FK_item")
+    @JsonIgnore //QUANDO CHAMA O findAll DO ESTOQUE, LISTA OS ITENS QUE ESTAO DENTRO DO ESTOQUE
     private Estoque estoque;
+
+    @ManyToOne
+    @JoinColumn(name = "id_carrinho_FK_item")
+    @JsonIgnore
+    private Carrinho carrinho;
 
     public Item() {
     }
 
     public Item(Long id, String nome, Float preco, Long qtd,Estoque e) {
-        this.id_item_PK = id;
-        this.nome_item = nome;
-        this.preco_item = preco;
-        this.quantidade_item = qtd;
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = qtd;
         this.estoque = e;
+    }
+    public Item(Long id, String nome, Float preco, Long qtd,Estoque e, Carrinho c) {
+        this.id = id;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = qtd;
+        this.estoque = e;
+        this.carrinho = c;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item item)) return false;
+        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getEstoque(), item.getEstoque()) && Objects.equals(getCarrinho(), item.getCarrinho());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }

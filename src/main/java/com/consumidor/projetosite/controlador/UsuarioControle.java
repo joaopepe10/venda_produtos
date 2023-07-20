@@ -20,7 +20,7 @@ public class UsuarioControle {
     }
 
     @GetMapping("/listar/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
+    public ResponseEntity<?> listarPorId(@PathVariable Long id){
         return usuarioServico.findById(id);
     }
 }

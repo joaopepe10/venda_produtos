@@ -1,52 +1,62 @@
 package com.consumidor.projetosite.modelo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.springframework.stereotype.Component;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Entity
-@Component
 public class Estoque implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_estoque_PK;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(nullable = false)
     private String categoria;
 
     @OneToMany(mappedBy = "estoque")
     @Column(nullable = false)
-    List<Item> produtos = new ArrayList<>();
+    private List<Item> produtos = new ArrayList<>();
 
     public Estoque() {
     }
 
     public Estoque(Long id_estoque, String categoria) {
-        this.id_estoque_PK = id_estoque;
+        this.id = id_estoque;
         this.categoria = categoria;
     }
 
     public Estoque(Long id_estoque, String categoria, List<Item> produtos) {
-        this.id_estoque_PK = id_estoque;
+        this.id = id_estoque;
         this.categoria = categoria;
         this.produtos = produtos;
     }
 
-    public void setId_estoque(Long id_estoque) {
-        this.id_estoque_PK = id_estoque;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public void setCategoria(String categoria) {
         this.categoria = categoria;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Estoque estoque)) return false;
+        return Objects.equals(getId(), estoque.getId()) && Objects.equals(getCategoria(), estoque.getCategoria()) && Objects.equals(getProdutos(), estoque.getProdutos());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId());
     }
 }

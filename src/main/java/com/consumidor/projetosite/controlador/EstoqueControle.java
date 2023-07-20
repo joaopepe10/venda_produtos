@@ -15,18 +15,23 @@ public class EstoqueControle {
     @Autowired
     private EstoqueServico estoqueServico;
 
-    @PostMapping("/cadastrar")
+    @PostMapping("/cadastrar-item")
     public ResponseEntity<?> cadastro(@RequestBody Item p){
         return estoqueServico.adcProdutoEstoque(p);
     }
 
-    @GetMapping("/listar")
+    @GetMapping("/listar-todos")
     public ResponseEntity<?> listar(){
         return estoqueServico.findAll();
     }
 
-    @GetMapping("/listar/{id}")
+    @GetMapping("/listar-estoque/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id){
         return estoqueServico.findById(id);
+    }
+
+    @GetMapping("/listar/{id}")
+    public ResponseEntity<?> buscar(@PathVariable Long id){
+        return estoqueServico.findByProdutosId(id);
     }
 }
