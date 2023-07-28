@@ -29,7 +29,7 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Estoque smarthPhones = new Estoque(null,"Smartphones");
+       /* Estoque smarthPhones = new Estoque(null,"Smartphones");
         Estoque calcados = new Estoque(null,"Calcados");
         Estoque jogos = new Estoque(null,"Jogos");
         Estoque perfumes = new Estoque(null,"Perfumes");
@@ -60,6 +60,6 @@ public class TestConfig implements CommandLineRunner {
 
         Usuario u1 = new Usuario(null, "Joao Pedro", "Pires",
                             "123456", 28, 11, 1999, endereco1);
-        usuarioRepositorio.save(u1);
+        usuarioRepositorio.save(u1);*/
     }
 }

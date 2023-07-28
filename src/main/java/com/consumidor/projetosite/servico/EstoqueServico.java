@@ -8,9 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-
-import java.util.List;
-
 @Service
 public class EstoqueServico {
     @Autowired
@@ -18,15 +15,16 @@ public class EstoqueServico {
 
 
     public ResponseEntity<?> adcProdutoEstoque(Item item){
+        Estoque e = estoqueRepositorio.findByCategoria(item.getEstoque().getCategoria());
+
         Estoque estoque =  new Estoque();
         estoque.getProdutos().add(item);
         return new ResponseEntity<>(estoqueRepositorio.save(estoque), HttpStatus.CREATED);
     }
-
+    //BUSCA UMA LISTA DE PRODUTOS DE ACORDO COM O ID DO ESTOQUE
     public ResponseEntity<?> findByProdutosId(Long id){
         return new ResponseEntity<>(estoqueRepositorio.findByProdutosId(id), HttpStatus.OK);
     }
-
     public ResponseEntity<?> findAll(){
         return new ResponseEntity<>(estoqueRepositorio.findAll(),HttpStatus.OK);
     }

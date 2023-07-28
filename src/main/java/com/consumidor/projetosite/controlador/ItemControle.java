@@ -14,6 +14,10 @@ public class ItemControle {
     @Autowired
     private ItemServico itemServico;
 
+    @GetMapping()
+    public String index(){
+        return "index";
+    }
     @PostMapping("/cadastrar")
     public ResponseEntity<?> cadastrar(@RequestBody Item item){
         return itemServico.cadastrarItem(item);

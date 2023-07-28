@@ -20,6 +20,9 @@ public class Item implements Serializable {
     @Column(name = "id_item_PK")
     private Long id;
 
+    @Column(name = "codigo_produto", nullable = false)
+    private String codigo;
+
     @Column(name = "nome_item", nullable = false)
     private String nome;
 
@@ -58,15 +61,25 @@ public class Item implements Serializable {
         this.carrinho = c;
     }
 
+    public Item(Long id, String codigo, String nome, Float preco, Long quantidade, Estoque estoque, Carrinho carrinho) {
+        this.id = id;
+        this.codigo = codigo;
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.estoque = estoque;
+        this.carrinho = carrinho;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Item item)) return false;
-        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getEstoque(), item.getEstoque()) && Objects.equals(getCarrinho(), item.getCarrinho());
+        return Objects.equals(getId(), item.getId()) && Objects.equals(getCodigo(), item.getCodigo()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getEstoque(), item.getEstoque()) && Objects.equals(getCarrinho(), item.getCarrinho());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(getId(), getCodigo());
     }
 }
