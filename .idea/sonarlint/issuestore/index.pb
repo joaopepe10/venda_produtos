@@ -21,8 +21,6 @@ m
 =src/main/java/com/consumidor/projetosite/modelo/Endereco.java,e\c\ecaa01ebe6e973551beff10eca6556874afae86f
 l
 <src/main/java/com/consumidor/projetosite/modelo/Estoque.java,f\3\f39be8ec1484d358b63e139321fb0099d972388f
-l
-<src/main/java/com/consumidor/projetosite/modelo/Usuario.java,9\2\9234ff291511310064f2119110db52899bd0a3a8
 }
 Msrc/main/java/com/consumidor/projetosite/repositorio/CarrinhoRepositorio.java,a\4\a47bcf27bbf0cd10f56f01b87436fad2487dbb85
 }
@@ -33,8 +31,6 @@ Isrc/main/java/com/consumidor/projetosite/repositorio/ItemRepositorio.java,b\9\
 Lsrc/main/java/com/consumidor/projetosite/repositorio/UsuarioRepositorio.java,7\b\7b04a521cdafb165cb12ada6087489594c03e274
 u
 Esrc/main/java/com/consumidor/projetosite/servico/CarrinhoServico.java,9\c\9cba5d353608f47e95597c7cb3c7b901e404cf9d
-q
-Asrc/main/java/com/consumidor/projetosite/servico/ItemServico.java,5\2\527d2e82324a3e4f4fec5db2a91aa35a4bd07139
 |
 Lsrc/main/java/com/consumidor/projetosite/repositorio/EstoqueRepositorio.java,b\a\ba7ce03742f3d7f720c24acaec1bddc230fbf600
 <

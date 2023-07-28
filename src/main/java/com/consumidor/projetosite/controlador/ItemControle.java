@@ -5,6 +5,7 @@ import com.consumidor.projetosite.servico.ItemServico;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 //CRIANDO ROTA DO ITEM, E INFORMANDO AO SPRING QUE ESSE E UM CONTROLLER
 @RestController
@@ -14,13 +15,18 @@ public class ItemControle {
     @Autowired
     private ItemServico itemServico;
 
-    @GetMapping()
-    public String index(){
-        return "index";
-    }
+
     @PostMapping("/cadastrar")
     public ResponseEntity<?> cadastrar(@RequestBody Item item){
         return itemServico.cadastrarItem(item);
+    }
+
+    @GetMapping("/cadastrar-item")
+    public ModelAndView cadastro(Item item){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("Item/formItem");
+        mv.addObject("item", new Item());
+        return mv;
     }
 
     @GetMapping("/listar-formatado")

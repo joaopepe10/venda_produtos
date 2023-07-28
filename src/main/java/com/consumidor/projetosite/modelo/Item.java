@@ -2,7 +2,9 @@ package com.consumidor.projetosite.modelo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serial;
@@ -12,6 +14,8 @@ import java.util.Objects;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Item implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -20,8 +24,6 @@ public class Item implements Serializable {
     @Column(name = "id_item_PK")
     private Long id;
 
-    @Column(name = "codigo_produto", nullable = false)
-    private String codigo;
 
     @Column(name = "nome_item", nullable = false)
     private String nome;
@@ -42,44 +44,23 @@ public class Item implements Serializable {
     @JsonIgnore
     private Carrinho carrinho;
 
-    public Item() {
-    }
-
-    public Item(Long id, String nome, Float preco, Long qtd,Estoque e) {
+    public Item(Long id,String s, float v, long l, Estoque smarthPhones) {
         this.id = id;
-        this.nome = nome;
-        this.preco = preco;
-        this.quantidade = qtd;
-        this.estoque = e;
-    }
-    public Item(Long id, String nome, Float preco, Long qtd,Estoque e, Carrinho c) {
-        this.id = id;
-        this.nome = nome;
-        this.preco = preco;
-        this.quantidade = qtd;
-        this.estoque = e;
-        this.carrinho = c;
-    }
-
-    public Item(Long id, String codigo, String nome, Float preco, Long quantidade, Estoque estoque, Carrinho carrinho) {
-        this.id = id;
-        this.codigo = codigo;
-        this.nome = nome;
-        this.preco = preco;
-        this.quantidade = quantidade;
-        this.estoque = estoque;
-        this.carrinho = carrinho;
+        this.nome = s;
+        this.preco = v;
+        this.quantidade = l;
+        this.estoque = smarthPhones;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Item item)) return false;
-        return Objects.equals(getId(), item.getId()) && Objects.equals(getCodigo(), item.getCodigo()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getEstoque(), item.getEstoque()) && Objects.equals(getCarrinho(), item.getCarrinho());
+        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getEstoque(), item.getEstoque()) && Objects.equals(getCarrinho(), item.getCarrinho());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getCodigo());
+        return Objects.hash(getId());
     }
 }

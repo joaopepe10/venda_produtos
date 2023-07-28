@@ -16,12 +16,9 @@
     <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 
-    <form name="" action="" method="get">
+    <form method="post" action="/cadastrar-item" th:object="${item}">
         <label>Nome produto: </label>
-            <input type="text" name="f_name">
-            <input type="reset">
-            <input type="submit">
-
+        <input placeholder="Ex: nome," th:field="*{nome}"> <!-- nome e o msm atributo que esta na classe modeloItem-->
     </form>
 
 </body>

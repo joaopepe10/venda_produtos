@@ -21,10 +21,6 @@ m
 =src/main/java/com/consumidor/projetosite/modelo/Carrinho.java,6\e\6e573133be9f929bf699ab641db3293bbddcb297
 m
 =src/main/java/com/consumidor/projetosite/modelo/Endereco.java,e\c\ecaa01ebe6e973551beff10eca6556874afae86f
-q
-Asrc/main/java/com/consumidor/projetosite/servico/ItemServico.java,5\2\527d2e82324a3e4f4fec5db2a91aa35a4bd07139
-l
-<src/main/java/com/consumidor/projetosite/modelo/Usuario.java,9\2\9234ff291511310064f2119110db52899bd0a3a8
 u
 Esrc/main/java/com/consumidor/projetosite/servico/CarrinhoServico.java,9\c\9cba5d353608f47e95597c7cb3c7b901e404cf9d
 l
