@@ -3,6 +3,7 @@ package com.consumidor.projetosite.controlador;
 import com.consumidor.projetosite.modelo.Item;
 import com.consumidor.projetosite.servico.ItemServico;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,31 +17,25 @@ public class ItemControle {
     private ItemServico itemServico;
 
 
-    @PostMapping("/cadastrar")
-    public ResponseEntity<?> cadastrar(@RequestBody Item item){
-        return itemServico.cadastrarItem(item);
+    @GetMapping
+    public String home(){
+        return "Ola mundo!";
     }
 
-    @GetMapping("/cadastrar-item")
-    public ModelAndView cadastro(Item item){
+    @GetMapping("/cadastrar-item") //
+    public ResponseEntity<ModelAndView> cadastro(Item item){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("Item/formItem");
+        mv.setViewName("Item/formItem"); //DIRETORIO ONDE ESTA A VIEW
         mv.addObject("item", new Item());
-        return mv;
+        return new ResponseEntity<>(mv, HttpStatus.OK);
     }
 
-    @GetMapping("/listar-formatado")
-    public String listarFormatado(){
-        return itemServico.listarItensFormatado();
+    @PostMapping("salvarItem")
+    public ResponseEntity<ModelAndView> salvarItem(Item item){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("redirect:/cadastrar-item");
+        itemServico.salvarItem(item);
+        return new ResponseEntity<>(mv, HttpStatus.CREATED);
     }
 
-    @GetMapping("/listar")
-    public ResponseEntity<?> listar(){
-        return itemServico.findAll();
-    }
-
-    @GetMapping("/listar/{id}")
-    public ResponseEntity<?> findById(@PathVariable Long id){
-        return itemServico.findById(id);
-    }
 }

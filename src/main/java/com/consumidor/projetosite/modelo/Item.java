@@ -1,5 +1,6 @@
 package com.consumidor.projetosite.modelo;
 
+import com.consumidor.projetosite.enums.CategoriaEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -44,12 +45,19 @@ public class Item implements Serializable {
     @JsonIgnore
     private Carrinho carrinho;
 
-    public Item(Long id,String s, float v, long l, Estoque smarthPhones) {
+    public Item(Long id,String s, float v, long l, Estoque estoque) {
         this.id = id;
         this.nome = s;
         this.preco = v;
         this.quantidade = l;
-        this.estoque = smarthPhones;
+        this.estoque = estoque;
+    }
+
+    public Item(String nome , float valor, long quantidade, CategoriaEnum categoria) {
+        this.nome = nome;
+        this.preco = valor;
+        this.quantidade = quantidade;
+        this.estoque.setCategoria(categoria);
     }
 
     @Override

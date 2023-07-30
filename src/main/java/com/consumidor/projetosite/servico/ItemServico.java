@@ -14,9 +14,12 @@ public class ItemServico {
     @Autowired
     private ItemRepositorio itemRepositorio;
 
+    public Item salvarItem(Item item){
+        return itemRepositorio.save(item);
+    }
     public ItemDTO buscarPorId(Long id){
-       Item entidade = itemRepositorio.findById(id).get();
-
-        return
+       Item entidade = itemRepositorio.findById(id).get(); //METODO GET UTILIZADO PARA ACESSAR O OBJETO DENTRO DO OPTINAL
+       ItemDTO dto = new ItemDTO(entidade); // O RETORNO QUANDO FIZER A BUSCA SERA DO DTO DE ACORDO COM OS ATRIBUTOS EXPOSTOS NA CLASSE itemDTO
+        return dto;
     }
 }

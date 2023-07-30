@@ -1,17 +1,23 @@
 package com.consumidor.projetosite.modelo;
 
-
+import com.consumidor.projetosite.enums.CategoriaEnum;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+
 
 @Getter
+@Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Estoque implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -20,43 +26,13 @@ public class Estoque implements Serializable {
     private Long id;
 
     @Column(nullable = false)
-    private String categoria;
+    private CategoriaEnum categoria;
 
     @OneToMany(mappedBy = "estoque")
     @Column(nullable = false)
     private List<Item> produtos = new ArrayList<>();
 
-    public Estoque() {
-    }
-
-    public Estoque(Long id_estoque, String categoria) {
-        this.id = id_estoque;
+    public Estoque(Long id,CategoriaEnum categoria){
         this.categoria = categoria;
-    }
-
-    public Estoque(Long id_estoque, String categoria, List<Item> produtos) {
-        this.id = id_estoque;
-        this.categoria = categoria;
-        this.produtos = produtos;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Estoque estoque)) return false;
-        return Objects.equals(getId(), estoque.getId()) && Objects.equals(getCategoria(), estoque.getCategoria()) && Objects.equals(getProdutos(), estoque.getProdutos());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
     }
 }

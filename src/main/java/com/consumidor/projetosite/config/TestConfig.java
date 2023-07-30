@@ -1,5 +1,8 @@
+
 package com.consumidor.projetosite.config;
 
+
+import com.consumidor.projetosite.enums.CategoriaEnum;
 import com.consumidor.projetosite.modelo.*;
 import com.consumidor.projetosite.repositorio.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +32,11 @@ public class TestConfig implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-       Estoque smarthPhones = new Estoque(null,"Smartphones");
-        Estoque calcados = new Estoque(null,"Calcados");
-        Estoque jogos = new Estoque(null,"Jogos");
-        Estoque perfumes = new Estoque(null,"Perfumes");
+
+        Estoque smarthPhones = new Estoque(null,CategoriaEnum.INFORMATICA);
+        Estoque calcados = new Estoque(null, CategoriaEnum.CALCADO);
+        Estoque jogos = new Estoque(null, CategoriaEnum.INFORMATICA);
+        Estoque perfumes = new Estoque(null,CategoriaEnum.PERFUME);
         Carrinho carrinho = new Carrinho();
         carrinho.setQuantidadeRequerida(12);
 
@@ -63,3 +67,4 @@ public class TestConfig implements CommandLineRunner {
         usuarioRepositorio.save(u1);
     }
 }
+

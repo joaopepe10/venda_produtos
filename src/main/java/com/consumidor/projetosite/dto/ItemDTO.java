@@ -1,5 +1,6 @@
 package com.consumidor.projetosite.dto;
 
+import com.consumidor.projetosite.enums.CategoriaEnum;
 import com.consumidor.projetosite.modelo.Carrinho;
 import com.consumidor.projetosite.modelo.Estoque;
 import com.consumidor.projetosite.modelo.Item;
@@ -28,7 +29,7 @@ public class ItemDTO {
         estoque = item.getEstoque();
         carrinho = item.getCarrinho();
     }
-    public ItemDTO(Item item, String categoria){
+    public ItemDTO(Item item, CategoriaEnum categoria){
         id = item.getId();
         nome = item.getNome();
         preco = item.getPreco();
