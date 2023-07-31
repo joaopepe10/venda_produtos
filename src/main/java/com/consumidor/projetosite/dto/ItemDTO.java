@@ -1,9 +1,9 @@
 package com.consumidor.projetosite.dto;
 
-import com.consumidor.projetosite.enums.CategoriaEnum;
-import com.consumidor.projetosite.modelo.Carrinho;
-import com.consumidor.projetosite.modelo.Estoque;
-import com.consumidor.projetosite.modelo.Item;
+import com.consumidor.projetosite.enums.CategoryENUM;
+import com.consumidor.projetosite.models.Cart;
+import com.consumidor.projetosite.models.Stock;
+import com.consumidor.projetosite.models.Item;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,22 +18,22 @@ public class ItemDTO {
     private String nome;
     private Float preco;
     private Long quantidade;
-    private Estoque estoque;
-    private Carrinho carrinho;
+    private Stock stock;
+    private Cart cart;
 
     public ItemDTO(Item item){
         id = item.getId();
         nome = item.getNome();
         preco = item.getPreco();
         quantidade = item.getQuantidade();
-        estoque = item.getEstoque();
-        carrinho = item.getCarrinho();
+        stock = item.getStock();
+        cart = item.getCart();
     }
-    public ItemDTO(Item item, CategoriaEnum categoria){
+    public ItemDTO(Item item, CategoryENUM categoria){
         id = item.getId();
         nome = item.getNome();
         preco = item.getPreco();
         quantidade = item.getQuantidade();
-        estoque.setCategoria(categoria);
+        stock.setCategoria(categoria);
     }
 }

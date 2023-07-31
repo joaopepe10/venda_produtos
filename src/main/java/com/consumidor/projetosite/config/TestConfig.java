@@ -2,9 +2,9 @@
 package com.consumidor.projetosite.config;
 
 
-import com.consumidor.projetosite.enums.CategoriaEnum;
-import com.consumidor.projetosite.modelo.*;
-import com.consumidor.projetosite.repositorio.*;
+import com.consumidor.projetosite.enums.CategoryENUM;
+import com.consumidor.projetosite.models.*;
+import com.consumidor.projetosite.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -17,31 +17,31 @@ import java.util.Arrays;
 public class TestConfig implements CommandLineRunner {
     //CLASSE DE TESTE PARA POPULAR O BANCO DE DADOS, COM DADOS JA PREDEFINIDOS
     @Autowired
-    private ItemRepositorio itemRepositorio;
+    private ItemRepository itemRepository;
     @Autowired
-    private EstoqueRepositorio estoqueRepositorio;
+    private StockRepository stockRepository;
 
     @Autowired
-    private UsuarioRepositorio usuarioRepositorio;
+    private UserRepository userRepository;
 
     @Autowired
-    private EnderecoRepositorio enderecoRepositorio;
+    private AdressRepository adressRepository;
 
     @Autowired
-    private CarrinhoRepositorio carrinhoRepositorio;
+    private CartRepository cartRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-        Estoque smarthPhones = new Estoque(null,CategoriaEnum.INFORMATICA);
-        Estoque calcados = new Estoque(null, CategoriaEnum.CALCADO);
-        Estoque jogos = new Estoque(null, CategoriaEnum.INFORMATICA);
-        Estoque perfumes = new Estoque(null,CategoriaEnum.PERFUME);
-        Carrinho carrinho = new Carrinho();
-        carrinho.setQuantidadeRequerida(12);
+        Stock smarthPhones = new Stock(null, CategoryENUM.INFORMATICA);
+        Stock calcados = new Stock(null, CategoryENUM.CALCADO);
+        Stock jogos = new Stock(null, CategoryENUM.INFORMATICA);
+        Stock perfumes = new Stock(null, CategoryENUM.PERFUME);
+        Cart cart = new Cart();
+        cart.setQuantidade(12);
 
-        estoqueRepositorio.saveAll(Arrays.asList(smarthPhones, calcados, jogos, perfumes));
-        carrinhoRepositorio.save(carrinho);
+        stockRepository.saveAll(Arrays.asList(smarthPhones, calcados, jogos, perfumes));
+        cartRepository.save(cart);
 
         Item i1 = new Item(null, "Iphone 12", 1333.23f,23L ,smarthPhones);
         Item i8 = new Item(null, "Iphone 13", 2333.23f,33L ,smarthPhones);
@@ -51,20 +51,20 @@ public class TestConfig implements CommandLineRunner {
         Item i5 = new Item(null, "Air Jordan 4", 933.23f, 22L,calcados);
         Item i6 = new Item(null, "Mario Kart", 333.23f, 12L,jogos);
         Item i7 = new Item(null, "Chanel", 333.23f, 12L,perfumes);
-        itemRepositorio.saveAll(Arrays.asList(i1, i2, i3, i4, i5, i6, i7, i8));
+        itemRepository.saveAll(Arrays.asList(i1, i2, i3, i4, i5, i6, i7, i8));
 
         //Adiciona o item 1 ao carrinho
-        carrinho.getItens().add(i1);
+        cart.getItens().add(i1);
 
         //Informa a quantidade de itens
-        carrinho.setQuantidadeRequerida(10);
+        cart.setQuantidade(10);
 
-        Endereco endereco1 = new Endereco("av do contorno", "barro preto","10320","30110017");
-        enderecoRepositorio.save(endereco1);
+        Adress adress1 = new Adress("av do contorno", "barro preto","10320","30110017");
+        adressRepository.save(adress1);
 
-        Usuario u1 = new Usuario(null, "Joao Pedro", "Pires",
-                            "123456", 28, 11, 1999, endereco1);
-        usuarioRepositorio.save(u1);
+        User u1 = new User(null, "Joao Pedro", "Pires",
+                            "123456", 28, 11, 1999, adress1);
+        userRepository.save(u1);
     }
 }
 
