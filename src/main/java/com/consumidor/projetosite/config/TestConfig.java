@@ -1,3 +1,4 @@
+/*
 
 package com.consumidor.projetosite.config;
 
@@ -13,7 +14,9 @@ import org.springframework.context.annotation.Profile;
 import java.util.Arrays;
 
 @Configuration
-@Profile("test")
+*/
+/*@Profile("test")*//*
+
 public class TestConfig implements CommandLineRunner {
     //CLASSE DE TESTE PARA POPULAR O BANCO DE DADOS, COM DADOS JA PREDEFINIDOS
     @Autowired
@@ -23,9 +26,6 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private AdressRepository adressRepository;
 
     @Autowired
     private CartRepository cartRepository;
@@ -53,14 +53,11 @@ public class TestConfig implements CommandLineRunner {
         Item i7 = new Item(null, "Chanel", 333.23f, 12L,perfumes);
         itemRepository.saveAll(Arrays.asList(i1, i2, i3, i4, i5, i6, i7, i8));
 
-        //Adiciona o item 1 ao carrinho
         cart.getItens().add(i1);
 
-        //Informa a quantidade de itens
         cart.setQuantidade(10);
 
         Adress adress1 = new Adress("av do contorno", "barro preto","10320","30110017");
-        adressRepository.save(adress1);
 
         User u1 = new User(null, "Joao Pedro", "Pires",
                             "123456", 28, 11, 1999, adress1);
@@ -68,3 +65,4 @@ public class TestConfig implements CommandLineRunner {
     }
 }
 
+*/

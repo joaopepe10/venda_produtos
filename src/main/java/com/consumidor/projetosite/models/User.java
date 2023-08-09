@@ -10,6 +10,7 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
+@Table(name = "tbl_users")
 public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -35,8 +36,7 @@ public class User implements Serializable {
     @Column(nullable = false)
     private Integer ano;
 
-    @OneToOne
-    @JoinColumn(name = "id_endereco_FK", referencedColumnName = "id_endereco_PK")
+    @Embedded
     private Adress adress;
 
     public User() {

@@ -3,7 +3,6 @@ package com.consumidor.projetosite.services;
 import com.consumidor.projetosite.dto.ItemDTO;
 import com.consumidor.projetosite.models.Item;
 
-import java.util.List;
 
 public interface ItemService {
 

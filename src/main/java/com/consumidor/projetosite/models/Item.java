@@ -22,15 +22,15 @@ public class Item implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_item_PK")
     private Long id;
-
 
     @Column(name = "nome_item", nullable = false)
     private String nome;
 
-    @Column( name = "preco_item",nullable = false)
+    @Column(name = "preco_item", nullable = false)
     private Float preco;
 
     @Column(nullable = false, name = "quantidade_item")
@@ -44,9 +44,9 @@ public class Item implements Serializable {
     @ManyToOne
     @JoinColumn(name = "id_carrinho_FK_item")
     @JsonIgnore
-    private Cart cart;
+    private Order order;
 
-    public Item(Long id,String s, float v, long l, Stock stock) {
+    public Item(Long id, String s, float v, long l, Stock stock) {
         this.id = id;
         this.nome = s;
         this.preco = v;
@@ -54,7 +54,7 @@ public class Item implements Serializable {
         this.stock = stock;
     }
 
-    public Item(String nome , float valor, long quantidade, CategoryENUM categoria) {
+    public Item(String nome, float valor, long quantidade, CategoryENUM categoria) {
         this.nome = nome;
         this.preco = valor;
         this.quantidade = quantidade;
@@ -65,7 +65,7 @@ public class Item implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Item item)) return false;
-        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getStock(), item.getStock()) && Objects.equals(getCart(), item.getCart());
+        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getStock(), item.getStock()) && Objects.equals(getOrder(), item.getOrder());
     }
 
     @Override
