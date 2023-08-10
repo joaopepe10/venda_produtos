@@ -10,9 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-
 @Service
 public class ItemServiceIMPL implements ItemService {
     @Autowired
@@ -25,7 +22,7 @@ public class ItemServiceIMPL implements ItemService {
     }
 
     public ItemDTO findById(Long id){
-       Item entity = itemRepository.findById(id).get(); //METODO GET UTILIZADO PARA ACESSAR O OBJETO DENTRO DO OPTINAL
+       Item entity = itemRepository.findById(id).get();
         return new ItemDTO(entity);
     }
     public Iterable<Item> saveAll(Iterable<Item> items){

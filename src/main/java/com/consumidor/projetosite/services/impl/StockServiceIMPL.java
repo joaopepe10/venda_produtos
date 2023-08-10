@@ -1,5 +1,7 @@
 package com.consumidor.projetosite.services.impl;
 
+import com.consumidor.projetosite.dto.StockDTO;
+import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
 import com.consumidor.projetosite.repositories.ItemRepository;
@@ -7,6 +9,7 @@ import com.consumidor.projetosite.repositories.StockRepository;
 import com.consumidor.projetosite.services.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,12 +23,15 @@ public class StockServiceIMPL implements StockService {
     public Stock save(Stock stock){
         return stockRepository.save(stock);
     }
-
-
-    public Stock saveItem(Long id,Item item){
-        Stock entity = stockRepository.findById(id).get();
-        entity.getProdutos().add(item);
-        return stockRepository.save(entity);
+    @Transactional
+    public Stock saveItem(StockDTO dto){
+       Item item = new Item(dto.getItem());
+       itemRepository.save(item);
+        Stock stock = stockRepository
+                .findById(dto.getId())
+                .orElseThrow(()-> new BusnissesRulesException("Codigo de estoque invalido!"));
+        stock.getProdutos().add(item);
+    return stockRepository.save(stock);
     }
     public List<Stock> findAll(){
         return stockRepository.findAll();

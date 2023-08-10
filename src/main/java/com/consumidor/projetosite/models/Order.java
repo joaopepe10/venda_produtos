@@ -24,7 +24,7 @@ public class Order implements Serializable {
 
     private Integer quantidade;
 
-   @OneToMany(mappedBy = "cart") //nome do atributo criado na outra classe/tabela
+   @OneToMany(mappedBy = "order") //nome do atributo criado na outra classe/tabela
    @Column(nullable = false)
    private List<Item> itens = new ArrayList<>();
 

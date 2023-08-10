@@ -1,5 +1,6 @@
 package com.consumidor.projetosite.models;
 
+import com.consumidor.projetosite.dto.ItemDTO;
 import com.consumidor.projetosite.enums.CategoryENUM;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -10,6 +11,7 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Objects;
 
 @Entity
@@ -31,7 +33,7 @@ public class Item implements Serializable {
     private String nome;
 
     @Column(name = "preco_item", nullable = false)
-    private Float preco;
+    private BigDecimal preco;
 
     @Column(nullable = false, name = "quantidade_item")
     private Long quantidade;
@@ -46,7 +48,7 @@ public class Item implements Serializable {
     @JsonIgnore
     private Order order;
 
-    public Item(Long id, String s, float v, long l, Stock stock) {
+    public Item(Long id, String s, BigDecimal v, long l, Stock stock) {
         this.id = id;
         this.nome = s;
         this.preco = v;
@@ -54,11 +56,17 @@ public class Item implements Serializable {
         this.stock = stock;
     }
 
-    public Item(String nome, float valor, long quantidade, CategoryENUM categoria) {
+    public Item(String nome, BigDecimal valor, long quantidade, CategoryENUM categoria) {
         this.nome = nome;
         this.preco = valor;
         this.quantidade = quantidade;
         this.stock.setCategoria(categoria);
+    }
+
+    public Item(ItemDTO dto){
+        this.nome = dto.getNome();
+        this.preco = dto.getPreco();
+        this.quantidade = dto.getQuantidade();
     }
 
     @Override

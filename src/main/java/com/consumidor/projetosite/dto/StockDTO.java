@@ -1,8 +1,8 @@
 package com.consumidor.projetosite.dto;
 
-import com.consumidor.projetosite.models.Item;
-
-import java.util.List;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * {   "id": 1,
@@ -15,8 +15,11 @@ import java.util.List;
  *      }
  *     ]
  */
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class StockDTO {
     private Long id;
-    private List<Item> items;
-
+    private ItemDTO item;
 }
