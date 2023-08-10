@@ -57,4 +57,8 @@ public class Stock implements Serializable {
             }
         }
     }
+
+    public Boolean cointainsItem(Item item){
+        return produtos.contains(item);
+    }
 }

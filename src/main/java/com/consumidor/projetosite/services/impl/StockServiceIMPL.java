@@ -26,10 +26,10 @@ public class StockServiceIMPL implements StockService {
     @Transactional
     public Stock saveItem(StockDTO dto){
        Item item = new Item(dto.getItem());
-       itemRepository.save(item);
         Stock stock = stockRepository
                 .findById(dto.getId())
                 .orElseThrow(()-> new BusnissesRulesException("Codigo de estoque invalido!"));
+        itemRepository.save(item);
         stock.getProdutos().add(item);
     return stockRepository.save(stock);
     }

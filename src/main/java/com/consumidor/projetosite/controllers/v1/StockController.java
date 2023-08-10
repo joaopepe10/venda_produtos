@@ -24,10 +24,10 @@ public class StockController {
     public Stock save(@RequestBody Stock stock){
         return stockServiceIMPL.save(stock);
     }
-    @PatchMapping("/adiciona")
+    @PatchMapping("/adiciona-item-novo")
     public String saveItem(@RequestBody StockDTO dto){
         Stock stock = stockServiceIMPL.saveItem(dto);
-        return "Salvo com sucesso o item na categoria" + stock.getCategoria();
+        return "Salvo com sucesso o item na categoria " + stock.getCategoria();
     }
 
     @GetMapping("/")
