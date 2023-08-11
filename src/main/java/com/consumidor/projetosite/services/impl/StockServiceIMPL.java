@@ -56,10 +56,11 @@ public class StockServiceIMPL implements StockService {
         Item item = itemRepository
                 .findById(dto.getItem().getId())
                 .orElseThrow(()-> new BusnissesRulesException("Codigo do item invalido!"));
+        item.setQuantidade(item.getQuantidade() + dto.getItem().getQuantidade());
         Stock stock = stockRepository
                 .findById(dto.getId())
                 .orElseThrow(() -> new BusnissesRulesException("Codigo do estoque invalido!"));
-       item.getStocks().add(stock);
+        item.getStocks().add(stock);
        stock.getProdutos().add(item);
        itemRepository.save(item);
        return stockRepository.save(stock);
