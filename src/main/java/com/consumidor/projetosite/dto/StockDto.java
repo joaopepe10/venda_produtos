@@ -4,10 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * {
+ *   "id":1,
+ *   "item":{
+ *       "nome":"Iphone X",
+ *       "preco":1300,
+ *       "quantidade":12
+ *   }
+ * }
+ */
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StockIdDTO {
+public class StockDto {
     private Long id;
-    private ItemIdDTO item;
+    private ItemDto item;
 }

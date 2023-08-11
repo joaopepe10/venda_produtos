@@ -55,8 +55,6 @@ i
 9src/main/java/com/consumidor/projetosite/dto/UserDTO.java,5\f\5f43f7137a3883cd70322ec4cd5a6339a4e775fd
 r
 Bsrc/main/java/com/consumidor/projetosite/services/UserService.java,a\5\a5afa30b8724fa0a93245227ffda038427f12d5a
-i
-9src/main/java/com/consumidor/projetosite/ProjectSite.java,a\d\adcadd468e843dfb00825d11a77049f6158d6fd0
 n
 >src/test/java/com/consumidor/projetosite/ProjectSiteTests.java,e\0\e0ba57bd1eea15e77b1faee882507d15e2c68ac6
 :
@@ -72,14 +70,8 @@ o
 ?src/main/java/com/consumidor/projetosite/config/TestConfig.java,8\0\80358cdbf796237d013380a564fc466bd7afc6ba
 i
 9src/main/java/com/consumidor/projetosite/models/User.java,d\a\da6e84728a154cf22a41b1b4d6f1c8636d7ed119
-|
-Lsrc/main/java/com/consumidor/projetosite/services/impl/OrderServiceIMPL.java,4\6\46088197765741369589c984f97e950f63df6756
 {
 Ksrc/main/java/com/consumidor/projetosite/services/impl/UserServiceIMPL.java,3\a\3a437e2af3548eec9a188f29bedd447bb7c33e0a
-s
-Csrc/main/java/com/consumidor/projetosite/services/OrderService.java,3\a\3a0b674dfe27d1400a68b650e44345f3d6719475
-s
-Csrc/main/java/com/consumidor/projetosite/services/StockService.java,0\1\01a3c164ca37e412caa090a288fcc93f9e009431
 y
 Isrc/main/java/com/consumidor/projetosite/repositories/ItemRepository.java,4\3\43ca0aeb076847345ed1a1087839bba68a633325
 z

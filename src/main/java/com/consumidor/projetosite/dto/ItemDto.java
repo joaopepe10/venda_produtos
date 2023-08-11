@@ -8,14 +8,13 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ItemDTO {
+public class ItemDto {
    private String nome;
    private BigDecimal preco;
-   private Long quantidade;
 
-   public ItemDTO(Item item){
+
+   public ItemDto(Item item){
       this.nome = item.getNome();
       this.preco = item.getPreco();
-      this.quantidade = item.getQuantidade();
    }
 }

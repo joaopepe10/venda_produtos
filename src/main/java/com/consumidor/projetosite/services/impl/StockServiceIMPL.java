@@ -1,8 +1,8 @@
 package com.consumidor.projetosite.services.impl;
 
-import com.consumidor.projetosite.dto.ItemDTO;
-import com.consumidor.projetosite.dto.StockDTO;
-import com.consumidor.projetosite.dto.StockIdDTO;
+import com.consumidor.projetosite.dto.ItemAmountDto;
+import com.consumidor.projetosite.dto.StockDto;
+import com.consumidor.projetosite.dto.StockItemAmountDto;
 import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
@@ -10,7 +10,6 @@ import com.consumidor.projetosite.repositories.ItemRepository;
 import com.consumidor.projetosite.repositories.StockRepository;
 import com.consumidor.projetosite.services.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +26,7 @@ public class StockServiceIMPL implements StockService {
         return stockRepository.save(stock);
     }
     @Transactional
-    public Stock saveItem(StockDTO dto){
+    public Stock saveItem(StockDto dto){
        Item item = new Item(dto.getItem());
         Stock stock = stockRepository
                 .findById(dto.getId())
@@ -36,33 +35,36 @@ public class StockServiceIMPL implements StockService {
         stock.getProdutos().add(item);
     return stockRepository.save(stock);
     }
-    public List<Stock> findAll(){
-        return stockRepository.findAll();
-    }
 
-    @Override
-    public String changeQuantity(Item item, Long id) {
-        Stock entity = stockRepository.findById(id).get();
-        entity.changeQuantity(item);
-        stockRepository.save(entity);
-        return "Quantidade alterada!";
-    }
-
-    public List<Stock> saveAll(List<Stock> stocks) {
-        return stockRepository.saveAll(stocks);
-    }
     @Transactional
-    public Stock saveItemWithRelation(StockIdDTO dto) {
+    public Stock saveItemWithRelation(StockItemAmountDto dto) {
+        Stock stock = stockRepository
+                .findById(dto.getId())
+                .orElseThrow(() -> new BusnissesRulesException("Codigo do estoque invalido!"));
         Item item = itemRepository
                 .findById(dto.getItem().getId())
                 .orElseThrow(()-> new BusnissesRulesException("Codigo do item invalido!"));
         item.setQuantidade(item.getQuantidade() + dto.getItem().getQuantidade());
-        Stock stock = stockRepository
-                .findById(dto.getId())
-                .orElseThrow(() -> new BusnissesRulesException("Codigo do estoque invalido!"));
         item.getStocks().add(stock);
-       stock.getProdutos().add(item);
-       itemRepository.save(item);
-       return stockRepository.save(stock);
+        stock.getProdutos().add(item);
+        itemRepository.save(item);
+        return stockRepository.save(stock);
     }
+
+    public List<Stock> findAll(){
+        return stockRepository.findAll();
+    }
+    public Item changeAmount(ItemAmountDto item, Long id) {
+        Stock entity = stockRepository.findById(id)
+                .orElseThrow(() -> new BusnissesRulesException("Codigo de estoque invalido!"));
+        entity.changeAmount(item);
+        stockRepository.save(entity);
+        return itemRepository
+                .findById(item.getId())
+                .orElseThrow(() -> new BusnissesRulesException("Codigo de item invalido!"));
+    }
+    public List<Stock> saveAll(List<Stock> stocks) {
+        return stockRepository.saveAll(stocks);
+    }
+
 }

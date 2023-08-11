@@ -13,7 +13,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductsDTO {
+public class ProductsDto {
     private Long produto;
     private Long quantidade;
 }

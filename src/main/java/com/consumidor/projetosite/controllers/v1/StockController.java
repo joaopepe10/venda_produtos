@@ -1,9 +1,9 @@
 package com.consumidor.projetosite.controllers.v1;
 
 
-import com.consumidor.projetosite.dto.ItemDTO;
-import com.consumidor.projetosite.dto.StockDTO;
-import com.consumidor.projetosite.dto.StockIdDTO;
+import com.consumidor.projetosite.dto.ItemAmountDto;
+import com.consumidor.projetosite.dto.StockDto;
+import com.consumidor.projetosite.dto.StockItemAmountDto;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
 import com.consumidor.projetosite.repositories.StockRepository;
@@ -35,31 +35,23 @@ public class StockController {
     }
 
     @PatchMapping("/adiciona")
-    public String saveNewItem(@RequestBody StockDTO dto){
+    public String saveNewItem(@RequestBody StockDto dto){
         Stock stock = stockServiceIMPL.saveItem(dto);
         return "Salvo com sucesso o item na categoria " + stock.getCategoria();
     }
 
     @PatchMapping("/adiciona-item")
-    public Stock saveItemWithRelation(@RequestBody StockIdDTO dto){
-        Stock stock = stockServiceIMPL.saveItemWithRelation(dto);
-        return stock;
+    public Stock saveItemWithRelation(@RequestBody StockItemAmountDto dto){
+        return stockServiceIMPL.saveItemWithRelation(dto);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Stock> findAll(){
         return stockServiceIMPL.findAll();
     }
 
-
-
     @PatchMapping("/{id}")
-    public Stock changeQuantity(@RequestBody Item item, @PathVariable Long id){
-        stockServiceIMPL.changeQuantity(item, id);
-        return stockRepository.findByCategoria(String.valueOf(id));
+    public Item changeAmount(@RequestBody ItemAmountDto item, @PathVariable Long id){
+        return stockServiceIMPL.changeAmount(item, id);
     }
-
-
-
-
 }

@@ -52,8 +52,6 @@ G.idea/sonarlint/issuestore/c/8/c88277f6aa870dc8d9a043b6446dc8dd4fb7e9e8,1\9\19
 Q.idea/sonarlint/securityhotspotstore/a/3/a30d80b2d90928ad58df49afc97d32a54c5a3be1,d\2\d2d253779d3fe48920c9eb9efdf2e802bb607f16
 n
 >src/test/java/com/consumidor/projetosite/ProjectSiteTests.java,e\0\e0ba57bd1eea15e77b1faee882507d15e2c68ac6
-i
-9src/main/java/com/consumidor/projetosite/ProjectSite.java,a\d\adcadd468e843dfb00825d11a77049f6158d6fd0
 w
 G.idea/sonarlint/issuestore/a/3/a30d80b2d90928ad58df49afc97d32a54c5a3be1,4\d\4dd421ca3f47b5abeeaf428df5521e97d72d5758
 i
@@ -72,14 +70,8 @@ o
 ?src/main/java/com/consumidor/projetosite/config/TestConfig.java,8\0\80358cdbf796237d013380a564fc466bd7afc6ba
 {
 Ksrc/main/java/com/consumidor/projetosite/services/impl/UserServiceIMPL.java,3\a\3a437e2af3548eec9a188f29bedd447bb7c33e0a
-|
-Lsrc/main/java/com/consumidor/projetosite/services/impl/OrderServiceIMPL.java,4\6\46088197765741369589c984f97e950f63df6756
 i
 9src/main/java/com/consumidor/projetosite/models/User.java,d\a\da6e84728a154cf22a41b1b4d6f1c8636d7ed119
-s
-Csrc/main/java/com/consumidor/projetosite/services/StockService.java,0\1\01a3c164ca37e412caa090a288fcc93f9e009431
-s
-Csrc/main/java/com/consumidor/projetosite/services/OrderService.java,3\a\3a0b674dfe27d1400a68b650e44345f3d6719475
 z
 Jsrc/main/java/com/consumidor/projetosite/repositories/OrderRepository.java,6\6\6664eed04e35b9d53cfd73be4c0bbe5a26b0c6b5
 y

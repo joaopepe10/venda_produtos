@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemIdDTO {
+public class ItemAmountDto {
     private Long id;
     private Long quantidade;
 }

@@ -10,14 +10,14 @@ import java.time.Period;
 
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class UserDto {
     private Long    id;
     private String    nome;
     private String    sobrenome;
     private Integer     idade;
     private Adress adress;
 
-    public UserDTO(User usuario){
+    public UserDto(User usuario){
         id = usuario.getId();
         nome = usuario.getNome();
         sobrenome =usuario.getSobrenome();

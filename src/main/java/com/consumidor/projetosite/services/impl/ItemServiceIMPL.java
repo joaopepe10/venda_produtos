@@ -1,16 +1,16 @@
 package com.consumidor.projetosite.services.impl;
 
 
-import com.consumidor.projetosite.dto.ItemDTO;
+import com.consumidor.projetosite.dto.ItemDto;
 import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.repositories.ItemRepository;
 import com.consumidor.projetosite.repositories.StockRepository;
 import com.consumidor.projetosite.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,21 +20,23 @@ public class ItemServiceIMPL implements ItemService {
     @Autowired
     private StockRepository stockRepository;
 
-    public Item save(Item item){
+    public Item save(ItemDto dto){
+        Item item = new Item(dto);
         return itemRepository.save(item);
     }
-    public List<Item> saveAll(Iterable<Item> items){
+    public List<Item> saveAll(List<ItemDto> dtos){
+        List<Item> items = convertToItem(dtos);
         return itemRepository.saveAll(items);
     }
 
-    public ItemDTO findById(Long id){
+    public ItemDto findById(Long id){
        Item entity = itemRepository.findById(id).
                orElseThrow(() -> new BusnissesRulesException("ID invalido!"));
-        return new ItemDTO(entity);
+        return new ItemDto(entity);
     }
     public void update(Long id, Item i){
         itemRepository.findById(id)
-                .ifPresent(itens ->{
+                .ifPresent(itens -> {
                     i.setId(itens.getId());
                     itemRepository.save(i);
                 });
@@ -43,4 +45,16 @@ public class ItemServiceIMPL implements ItemService {
         itemRepository.delete(item);
     }
 
+    private Item convertToItem(ItemDto dto){
+        return new Item(dto);
+    }
+
+    private List<Item> convertToItem(List<ItemDto> dto){
+        List<Item> items = new ArrayList<>();
+        for (ItemDto item : dto) {
+            Item item1 = new Item(item.getNome(), item.getPreco());
+            items.add(item1);
+        }
+        return items;
+    }
 }

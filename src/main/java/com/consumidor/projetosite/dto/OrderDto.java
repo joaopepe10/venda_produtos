@@ -18,9 +18,9 @@ import java.util.List;
  * } *
 */
 
-public class OrderDTO {
+public class OrderDto {
 
     private Long cliente;
     private BigDecimal total;
-    private List<ProductsDTO> produtos;
+    private List<ProductsDto> produtos;
 }

@@ -1,8 +1,8 @@
 package com.consumidor.projetosite.models;
 
-import com.consumidor.projetosite.dto.StockDTO;
+import com.consumidor.projetosite.dto.ItemAmountDto;
+import com.consumidor.projetosite.dto.StockDto;
 import com.consumidor.projetosite.enums.CategoryENUM;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -38,7 +38,7 @@ public class Stock implements Serializable {
     public Stock(Long id, CategoryENUM categoria){
         this.categoria = categoria;
     }
-    public Stock(StockDTO dto){
+    public Stock(StockDto dto){
         Item item = new Item(dto.getItem());
         this.id = dto.getId();
         this.produtos.add(item);
@@ -52,9 +52,9 @@ public class Stock implements Serializable {
         produtos.addAll(items);
     }
 
-    public void changeQuantity(Item item){
+    public void changeAmount(ItemAmountDto item){
         for (Item i : this.produtos){
-            if (i.equals(item)){
+            if (i.getId().equals(item.getId())){
                 i.setQuantidade(i.getQuantidade() + item.getQuantidade());
             }
         }

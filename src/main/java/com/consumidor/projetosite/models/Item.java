@@ -1,7 +1,6 @@
 package com.consumidor.projetosite.models;
 
-import com.consumidor.projetosite.dto.ItemDTO;
-import com.consumidor.projetosite.enums.CategoryENUM;
+import com.consumidor.projetosite.dto.ItemDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,7 +34,7 @@ public class Item implements Serializable {
     @Column(name = "preco_item", nullable = false)
     private BigDecimal preco;
 
-    @Column(nullable = false, name = "quantidade_item")
+    @Column(name = "quantidade_item", columnDefinition = "INT DEFAULT 0")
     private Long quantidade;
 
     @ManyToMany
@@ -52,10 +51,15 @@ public class Item implements Serializable {
     @JsonIgnore
     private Order order;
 
-    public Item(ItemDTO dto){
+    public Item(ItemDto dto){
         this.nome = dto.getNome();
         this.preco = dto.getPreco();
-        this.quantidade = dto.getQuantidade();
+        this.quantidade = 0L;
+    }
+    public Item(String nome, BigDecimal preco){
+        this.nome = nome;
+        this.preco = preco;
+        this.quantidade = 0L;
     }
 
     @Override
