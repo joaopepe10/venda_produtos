@@ -1,8 +1,6 @@
 package com.consumidor.projetosite.controllers.v1;
 
 import com.consumidor.projetosite.models.Item;
-
-import com.consumidor.projetosite.services.ItemService;
 import com.consumidor.projetosite.services.impl.ItemServiceIMPL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +16,7 @@ public class ItemController {
     @Autowired
     private ItemServiceIMPL itemServiceIMPL;
 
-    @GetMapping("/cadastrar") //
+    @GetMapping("/cadastrar")
     public ModelAndView cadastro(@ModelAttribute Item item){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("Item/formItem"); //DIRETORIO ONDE ESTA A VIEW

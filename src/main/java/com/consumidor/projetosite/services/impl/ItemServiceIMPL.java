@@ -7,7 +7,6 @@ import com.consumidor.projetosite.repositories.ItemRepository;
 import com.consumidor.projetosite.repositories.StockRepository;
 import com.consumidor.projetosite.services.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 
 import java.util.List;

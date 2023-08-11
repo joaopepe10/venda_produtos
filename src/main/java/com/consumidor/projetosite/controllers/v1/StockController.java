@@ -1,7 +1,9 @@
 package com.consumidor.projetosite.controllers.v1;
 
 
+import com.consumidor.projetosite.dto.ItemDTO;
 import com.consumidor.projetosite.dto.StockDTO;
+import com.consumidor.projetosite.dto.StockIdDTO;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
 import com.consumidor.projetosite.repositories.StockRepository;
@@ -33,9 +35,15 @@ public class StockController {
     }
 
     @PatchMapping("/adiciona")
-    public String saveItem(@RequestBody StockDTO dto){
+    public String saveNewItem(@RequestBody StockDTO dto){
         Stock stock = stockServiceIMPL.saveItem(dto);
         return "Salvo com sucesso o item na categoria " + stock.getCategoria();
+    }
+
+    @PatchMapping("/adiciona-item")
+    public Stock saveItemWithRelation(@RequestBody StockIdDTO dto){
+        Stock stock = stockServiceIMPL.saveItemWithRelation(dto);
+        return stock;
     }
 
     @GetMapping("/")

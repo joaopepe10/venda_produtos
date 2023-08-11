@@ -2,6 +2,7 @@ package com.consumidor.projetosite.models;
 
 import com.consumidor.projetosite.dto.StockDTO;
 import com.consumidor.projetosite.enums.CategoryENUM;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,13 +25,14 @@ public class Stock implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
     private CategoryENUM categoria;
 
-    @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "stocks")
     private List<Item> produtos = new ArrayList<>();
 
     public Stock(Long id, CategoryENUM categoria){

@@ -1,6 +1,5 @@
 package com.consumidor.projetosite.models;
 
-import jakarta.persistence.Embedded;
 import lombok.Getter;
 import lombok.Setter;
 

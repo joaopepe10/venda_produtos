@@ -12,6 +12,7 @@ import lombok.Setter;
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,7 +27,6 @@ public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_item_PK")
     private Long id;
 
     @Column(name = "nome_item", nullable = false)
@@ -38,30 +38,19 @@ public class Item implements Serializable {
     @Column(nullable = false, name = "quantidade_item")
     private Long quantidade;
 
-    @ManyToOne
-    @JoinColumn(name = "id_estoque_FK_item")
-    @JsonIgnore //QUANDO CHAMA O findAll DO ESTOQUE, LISTA OS ITENS QUE ESTAO DENTRO DO ESTOQUE
-    private Stock stock;
+    @ManyToMany
+    @JoinTable(
+            name = "tbl_aux_item_stock",
+            joinColumns = {@JoinColumn(name = "id_item", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "id_stock", referencedColumnName = "id")}
+    )
+    //@JsonIgnore QUANDO CHAMA O findAll DO ESTOQUE, LISTA OS ITENS QUE ESTAO DENTRO DO ESTOQUE
+    private List<Stock> stocks;
 
     @ManyToOne
-    @JoinColumn(name = "id_carrinho_FK_item")
+    @JoinColumn(name = "id_pedido_FK_item")
     @JsonIgnore
     private Order order;
-
-    public Item(Long id, String s, BigDecimal v, long l, Stock stock) {
-        this.id = id;
-        this.nome = s;
-        this.preco = v;
-        this.quantidade = l;
-        this.stock = stock;
-    }
-
-    public Item(String nome, BigDecimal valor, long quantidade, CategoryENUM categoria) {
-        this.nome = nome;
-        this.preco = valor;
-        this.quantidade = quantidade;
-        this.stock.setCategoria(categoria);
-    }
 
     public Item(ItemDTO dto){
         this.nome = dto.getNome();
@@ -73,7 +62,7 @@ public class Item implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Item item)) return false;
-        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getStock(), item.getStock()) && Objects.equals(getOrder(), item.getOrder());
+        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getOrder(), item.getOrder());
     }
 
     @Override

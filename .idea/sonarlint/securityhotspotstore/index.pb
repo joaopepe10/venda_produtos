@@ -92,7 +92,5 @@ j
 :src/main/java/com/consumidor/projetosite/dto/OrderDTO.java,d\7\d758ea8629e5a373847cd99ba4b035b9e2f7a067
 m
 =src/main/java/com/consumidor/projetosite/dto/ProductsDTO.java,7\0\70a4a1c3b1111d82aa5cfe8acdcb0738e9faa313
-j
-:src/main/java/com/consumidor/projetosite/dto/StockDTO.java,c\4\c4152983302157b1590f3653a034c499df70355d
 
 Osrc/main/java/com/consumidor/projetosite/exception/BusnissesRulesException.java,c\f\cf9c87cbee537fbaa507bf5b9183cf7b1fab06a7
