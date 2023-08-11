@@ -9,6 +9,6 @@ public interface ItemService {
     Item save(Item item);
     Iterable<Item> saveAll(Iterable<Item> items);
     ItemDTO findById(Long id);
-    Item update(Item item);
+    void update(Long id, Item i);
     void delete(Item item);
 }

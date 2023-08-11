@@ -70,8 +70,6 @@ z
 Jsrc/main/java/com/consumidor/projetosite/repositories/StockRepository.java,8\e\8e1c61eecefdd79aaeed0678c9259abcf286de86
 o
 ?src/main/java/com/consumidor/projetosite/config/TestConfig.java,8\0\80358cdbf796237d013380a564fc466bd7afc6ba
-{
-Ksrc/main/java/com/consumidor/projetosite/controllers/v1/UserController.java,9\c\9c61f5b410a742f3baa604c911ff820f25d58290
 i
 9src/main/java/com/consumidor/projetosite/models/User.java,d\a\da6e84728a154cf22a41b1b4d6f1c8636d7ed119
 |
@@ -86,8 +84,6 @@ y
 Isrc/main/java/com/consumidor/projetosite/repositories/ItemRepository.java,4\3\43ca0aeb076847345ed1a1087839bba68a633325
 z
 Jsrc/main/java/com/consumidor/projetosite/repositories/OrderRepository.java,6\6\6664eed04e35b9d53cfd73be4c0bbe5a26b0c6b5
-|
-Lsrc/main/java/com/consumidor/projetosite/controllers/v1/OrderController.java,e\c\ec61513705958eb384981d02d08ce03518854e9d
 j
 :src/main/java/com/consumidor/projetosite/dto/OrderDTO.java,d\7\d758ea8629e5a373847cd99ba4b035b9e2f7a067
 m
