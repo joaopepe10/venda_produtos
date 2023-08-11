@@ -44,4 +44,8 @@ public class StockServiceIMPL implements StockService {
         stockRepository.save(entity);
         return "Quantidade alterada!";
     }
+
+    public List<Stock> saveAll(List<Stock> stocks) {
+        return stockRepository.saveAll(stocks);
+    }
 }

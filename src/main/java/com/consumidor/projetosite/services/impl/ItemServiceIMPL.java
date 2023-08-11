@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemServiceIMPL implements ItemService {
     @Autowired
@@ -20,19 +22,17 @@ public class ItemServiceIMPL implements ItemService {
     public Item save(Item item){
         return itemRepository.save(item);
     }
+    public List<Item> saveAll(Iterable<Item> items){
+        return itemRepository.saveAll(items);
+    }
 
     public ItemDTO findById(Long id){
        Item entity = itemRepository.findById(id).get();
         return new ItemDTO(entity);
     }
-    public Iterable<Item> saveAll(Iterable<Item> items){
-        return itemRepository.saveAll(items);
-    }
-
     public Item update(Item item){
         return itemRepository.save(item);
     }
-
     public void delete(Item item){
         itemRepository.delete(item);
     }

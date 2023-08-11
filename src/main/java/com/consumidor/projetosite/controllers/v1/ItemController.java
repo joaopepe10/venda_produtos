@@ -3,9 +3,12 @@ package com.consumidor.projetosite.controllers.v1;
 import com.consumidor.projetosite.models.Item;
 
 import com.consumidor.projetosite.services.ItemService;
+import com.consumidor.projetosite.services.impl.ItemServiceIMPL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 //CRIANDO ROTA DO ITEM, E INFORMANDO AO SPRING QUE ESSE E UM CONTROLLER
 @RestController
@@ -13,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ItemController {
 
     @Autowired
-    private ItemService itemService;
+    private ItemServiceIMPL itemServiceIMPL;
 
     @GetMapping("/cadastrar") //
     public ModelAndView cadastro(@ModelAttribute Item item){
@@ -27,13 +30,18 @@ public class ItemController {
     public ModelAndView salvarItem(@RequestBody Item item){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("redirect:/cadastrar-item");
-        itemService.save(item);
+        itemServiceIMPL.save(item);
         return mv;
     }
 
-    @PostMapping("/salvar")
+    @PostMapping()
     public @ResponseBody Item salvar(@RequestBody Item item){
-        return itemService.save(item);
+        return itemServiceIMPL.save(item);
+    }
+
+    @PostMapping("/salvar")
+    public @ResponseBody List<Item> items(@RequestBody List<Item> items){
+        return itemServiceIMPL.saveAll(items);
     }
 
 }

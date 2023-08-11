@@ -8,6 +8,7 @@ import com.consumidor.projetosite.repositories.StockRepository;
 import com.consumidor.projetosite.services.impl.StockServiceIMPL;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,11 +21,18 @@ public class StockController {
     @Autowired
     private StockServiceIMPL stockServiceIMPL;
 
-    @PostMapping("/salvar")
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
     public Stock save(@RequestBody Stock stock){
         return stockServiceIMPL.save(stock);
     }
-    @PatchMapping("/adiciona-item-novo")
+
+    @PostMapping("/salvar")
+    public List<Stock> saveAll(@RequestBody List<Stock> stocks){
+        return stockServiceIMPL.saveAll(stocks);
+    }
+
+    @PatchMapping("/adiciona")
     public String saveItem(@RequestBody StockDTO dto){
         Stock stock = stockServiceIMPL.saveItem(dto);
         return "Salvo com sucesso o item na categoria " + stock.getCategoria();
