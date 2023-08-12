@@ -1,0 +1,20 @@
+{
+        "id_item": 1,
+        "nome_item": "Fone de ouvido",
+        "preco_item": 100.0
+    },
+    {
+        "id_item": 2,
+        "nome_item": "Caixa de som",
+        "preco_item": 500.77
+    },
+    {
+        "id_item": 3,
+        "nome_item": "Celular",
+        "preco_item": 1523.77
+    },
+    {
+        "id_item": 4,
+        "nome_item": "Tenis",
+        "preco_item": 499.99
+    }

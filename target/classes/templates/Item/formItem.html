@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <LINK rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+  <title>+ CADASTRO ITENS</title>
+  <meta name="author" content="Joao Pedro"/>
+</head>
+<body>
+    <div class="container" style="margin-top: 50px;">
+      <h4>+ Inserir item</h4>
+      <hr>
+        <!--NOME ITEM-->
+          <form method="post" action="salvarItem" th:object="${item}">
+            <div class="row"></div>
+              <div class="col-md-5"></div>
+              <label>Nome item: </label>
+              <input class="form-control" placeholder="Ex: Iphone 12" th:field="*{nome}" name="nome">
+
+                <!--PRECO ITEM-->
+              <div class="row"></div>
+              <div class="col-md-5"></div>
+              <label>Valor: </label>
+              <input class="form-control" placeholder="Ex: 2345,33" th:field="*{preco}" name="preco">
+
+              <!--QUANTIDADE-->
+              <div class="row"></div>
+              <div class="col-md-5"></div>
+              <label>Quantidade: </label>
+              <input class="form-control" placeholder="Ex: 12" th:field="*{quantidade}" name="quantidade">
+
+              <!--CATEGORIA-ESTOQUE-->
+              <div class="row"></div>
+              <div class="col-md-5 form-group"></div>
+              <label>Selecione a categoria: </label>
+              <select class="form-control">
+                <option th:each="categoria: ${T(com.consumidor.projetosite.enums.CategoriaEnum).values()}"
+                        th:value="${categoria}" th:text="${categoria}"></option>
+              </select>
+
+            <div class="row">
+              <button type="submit" class="btn btn-success">SALVAR</button>
+            </div>
+
+          </form>
+    </div>
+
+
+</body>
+</html>
