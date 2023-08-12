@@ -8,6 +8,4 @@ import java.util.List;
 
 @Repository
 public interface StockRepository extends JpaRepository<Stock, Long> {
-    Stock findByCategoria(String categoria);
-    List<Stock> findByProdutosId(Long id);
 }

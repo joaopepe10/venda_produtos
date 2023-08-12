@@ -64,12 +64,8 @@ Q.idea/sonarlint/securityhotspotstore/9/6/96bd2dc965a18db2b8800c7ed212ed4e8c7e00
 Ksrc/main/java/com/consumidor/projetosite/controllers/v1/HomeController.java,0\1\0164a3dd3bb09e37ba1084590966431b2fb5e466
 y
 Isrc/main/java/com/consumidor/projetosite/repositories/UserRepository.java,3\9\3909633464e58cf2e1cbfea0bc17c71aed3f501a
-z
-Jsrc/main/java/com/consumidor/projetosite/repositories/StockRepository.java,8\e\8e1c61eecefdd79aaeed0678c9259abcf286de86
 o
 ?src/main/java/com/consumidor/projetosite/config/TestConfig.java,8\0\80358cdbf796237d013380a564fc466bd7afc6ba
-{
-Ksrc/main/java/com/consumidor/projetosite/services/impl/UserServiceIMPL.java,3\a\3a437e2af3548eec9a188f29bedd447bb7c33e0a
 z
 Jsrc/main/java/com/consumidor/projetosite/repositories/OrderRepository.java,6\6\6664eed04e35b9d53cfd73be4c0bbe5a26b0c6b5
 y
@@ -84,8 +80,6 @@ j
 :src/main/java/com/consumidor/projetosite/models/Order.java,d\7\d7f6afde487c7ee08c7d4f9a8bc500737e848435
 p
 @src/main/java/com/consumidor/projetosite/enums/CategoryENUM.java,a\a\aa9b68d6acdf573e394688b832316c6211261d5c
-{
-Ksrc/main/java/com/consumidor/projetosite/controllers/v1/UserController.java,9\c\9c61f5b410a742f3baa604c911ff820f25d58290
 |
 Lsrc/main/java/com/consumidor/projetosite/controllers/v1/OrderController.java,e\c\ec61513705958eb384981d02d08ce03518854e9d
 7
