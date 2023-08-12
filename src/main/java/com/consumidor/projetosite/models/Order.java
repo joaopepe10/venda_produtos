@@ -13,16 +13,16 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "tbl_cart")
+@Table(name = "tbl_order")
 public class Order implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_carrinho_PK;
+    private Long id;
 
-    private Integer quantidade;
+    private Integer amount;
 
    @OneToMany(mappedBy = "order") //nome do atributo criado na outra classe/tabela
    @Column(nullable = false)
@@ -31,14 +31,14 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(Integer quantidade, List<Item> itens) {
+    public Order(Integer amount, List<Item> itens) {
         this.itens = itens;
-        this.quantidade = quantidade;
+        this.amount = amount;
     }
 
-    public Order(Item item, Integer quantidade){
+    public Order(Item item, Integer amount){
         this.itens.add(item);
-        this.quantidade = quantidade;
+        this.amount = amount;
     }
 
 }

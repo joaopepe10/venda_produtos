@@ -32,13 +32,11 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String password;
 
-    private Short day;
+    private Short birthDay;
 
-    @Column()
-    private Short month;
+    private Short birthMonth;
 
-    @Column()
-    private Short year;
+    private Short birthYear;
 
     @Embedded
     private Adress adress;
@@ -46,9 +44,9 @@ public class User implements Serializable {
     public User(UserRequest dto){
         this.name = dto.getName();
         this.lastName = dto.getLastName();
-        this.day = dto.getDay();
-        this.month = dto.getMonth();
-        this.year = dto.getYear();
+        this.birthDay = dto.getDay();
+        this.birthDay = dto.getMonth();
+        this.birthYear = dto.getYear();
         this.email = dto.getEmail();
         this.password = dto.getPassword();
     }
@@ -57,11 +55,11 @@ public class User implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
-        return Objects.equals(getId(), user.getId()) && Objects.equals(getName(), user.getName()) && Objects.equals(getLastName(), user.getLastName()) && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getPassword(), user.getPassword()) && Objects.equals(getDay(), user.getDay()) && Objects.equals(getMonth(), user.getMonth()) && Objects.equals(getYear(), user.getYear()) && Objects.equals(getAdress(), user.getAdress());
+        return Objects.equals(getId(), user.getId()) && Objects.equals(getName(), user.getName()) && Objects.equals(getLastName(), user.getLastName()) && Objects.equals(getEmail(), user.getEmail()) && Objects.equals(getPassword(), user.getPassword()) && Objects.equals(getBirthDay(), user.getBirthDay()) && Objects.equals(getBirthMonth(), user.getBirthMonth()) && Objects.equals(getBirthYear(), user.getBirthYear()) && Objects.equals(getAdress(), user.getAdress());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getEmail());
+        return Objects.hash(getId());
     }
 }
