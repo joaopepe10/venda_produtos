@@ -5,7 +5,6 @@ import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.services.impl.ItemServiceIMPL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -31,7 +30,6 @@ public class ItemController {
         itemServiceIMPL.save(item);
         return mv;
     }*/
-
     @PutMapping("/{id}")
     public void update (@PathVariable Long id,
                         @RequestBody Item item){

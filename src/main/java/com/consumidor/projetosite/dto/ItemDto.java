@@ -14,7 +14,7 @@ public class ItemDto {
 
 
    public ItemDto(Item item){
-      this.nome = item.getNome();
-      this.preco = item.getPreco();
+      this.nome = item.getName();
+      this.preco = item.getPrice();
    }
 }

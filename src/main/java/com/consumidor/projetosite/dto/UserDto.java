@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.dto;
 
-import com.consumidor.projetosite.models.Adress;
+import com.consumidor.projetosite.models.attributes.Adress;
 import com.consumidor.projetosite.models.User;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -19,9 +19,9 @@ public class UserDto {
 
     public UserDto(User usuario){
         id = usuario.getId();
-        nome = usuario.getNome();
-        sobrenome =usuario.getSobrenome();
-        idade = calculaIdade(usuario.getDia(), usuario.getMes(), usuario.getAno());
+        nome = usuario.getName();
+        sobrenome =usuario.getLastName();
+        idade = calculaIdade(usuario.getDay(), usuario.getMonth(), usuario.getYear());
         adress = usuario.getAdress();
     }
 

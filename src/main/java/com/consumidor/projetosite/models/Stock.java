@@ -29,38 +29,38 @@ public class Stock implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private CategoryENUM categoria;
+    @Column(nullable = false, unique = true)
+    private CategoryENUM category;
 
     @ManyToMany(mappedBy = "stocks")
-    private List<Item> produtos = new ArrayList<>();
+    private List<Item> products = new ArrayList<>();
 
-    public Stock(Long id, CategoryENUM categoria){
-        this.categoria = categoria;
+    public Stock(Long id, CategoryENUM category){
+        this.category = category;
     }
     public Stock(StockDto dto){
         Item item = new Item(dto.getItem());
         this.id = dto.getId();
-        this.produtos.add(item);
+        this.products.add(item);
     }
 
     public void saveItem(Item item){
-        produtos.add(item);
+        products.add(item);
     }
 
     public void saveItem(List<Item> items){
-        produtos.addAll(items);
+        products.addAll(items);
     }
 
     public void changeAmount(ItemAmountDto item){
-        for (Item i : this.produtos){
+        for (Item i : this.products){
             if (i.getId().equals(item.getId())){
-                i.setQuantidade(i.getQuantidade() + item.getQuantidade());
+                i.setAmount(i.getAmount() + item.getQuantidade());
             }
         }
     }
 
     public Boolean cointainsItem(Item item){
-        return produtos.contains(item);
+        return products.contains(item);
     }
 }

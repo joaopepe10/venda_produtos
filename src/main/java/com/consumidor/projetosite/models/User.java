@@ -1,5 +1,6 @@
 package com.consumidor.projetosite.models;
 
+import com.consumidor.projetosite.models.attributes.Adress;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,26 +16,27 @@ public class User implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String nome;
+    private String name;
 
     @Column(nullable = false)
-    private String sobrenome;
+    private String lastName;
 
     @Column(nullable = false)
-    private String senha;
+    private String password;
 
     @Column(nullable = false)
-    private Integer dia;
+    private Integer day;
 
     @Column(nullable = false)
-    private Integer mes;
+    private Integer month;
 
     @Column(nullable = false)
-    private Integer ano;
+    private Integer year;
 
     @Embedded
     private Adress adress;
@@ -42,41 +44,41 @@ public class User implements Serializable {
     public User() {
     }
 
-    public User(String nome_usuario, String sobrenome_usuario, String senha) {
-        this.nome = nome_usuario;
-        this.sobrenome = sobrenome_usuario;
-        this.senha = senha;
+    public User(String name, String lastName, String password) {
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
     }
 
-    public User(Long id_user_PK, String nome_usuario,
-                String sobrenome_usuario, String senha,
-                Integer dia, Integer mes, Integer ano, Adress adress) {
-        this.id = id_user_PK;
-        this.nome = nome_usuario;
-        this.sobrenome = sobrenome_usuario;
-        this.senha = senha;
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = ano;
+    public User(Long id, String name,
+                String lastName, String password,
+                Integer day, Integer month, Integer year, Adress adress) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.day = day;
+        this.month = month;
+        this.year = year;
         this.adress = adress;
     }
 
-    public User(Long id_user_PK, String nome_usuario,
-                String sobrenome_usuario, String senha,
-                Integer dia, Integer mes, Integer ano, String rua,
+    public User(Long id, String name,
+                String lastName, String password,
+                Integer day, Integer month, Integer year, String rua,
                 String bairro, String numero, String cep) {
 
-        this.id = id_user_PK;
-        this.nome = nome_usuario;
-        this.sobrenome = sobrenome_usuario;
-        this.senha = senha;
-        this.dia = dia;
-        this.mes = mes;
-        this.ano = ano;
-        this.adress.setRua(rua);
-        this.adress.setBairro(bairro);
-        this.adress.setNumero(numero);
-        this.adress.setCep(cep);
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.password = password;
+        this.day = day;
+        this.month = month;
+        this.year = year;
+        this.adress.setRoad(rua);
+        this.adress.setDistrict(bairro);
+        this.adress.setNumber(numero);
+        this.adress.setZipCode(cep);
     }
 
 

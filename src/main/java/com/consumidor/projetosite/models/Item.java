@@ -28,14 +28,16 @@ public class Item implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nome_item", nullable = false)
-    private String nome;
+    @Column(nullable = false)
+    private String name;
 
-    @Column(name = "preco_item", nullable = false)
-    private BigDecimal preco;
+    @Column(name = "unity_price", nullable = false)
+    private BigDecimal price;
 
-    @Column(name = "quantidade_item", columnDefinition = "INT DEFAULT 0")
-    private Long quantidade;
+    @Column(columnDefinition = "INT DEFAULT 0")
+    private Long amount;
+
+
 
     @ManyToMany
     @JoinTable(
@@ -52,25 +54,30 @@ public class Item implements Serializable {
     private Order order;
 
     public Item(ItemDto dto){
-        this.nome = dto.getNome();
-        this.preco = dto.getPreco();
-        this.quantidade = 0L;
+        this.name = dto.getNome();
+        this.price = dto.getPreco();
+        this.amount = 0L;
     }
-    public Item(String nome, BigDecimal preco){
-        this.nome = nome;
-        this.preco = preco;
-        this.quantidade = 0L;
+    public Item(String name, BigDecimal price){
+        this.name = name;
+        this.price = price;
+        this.amount = 0L;
+    }
+
+    public BigDecimal sumTotal(){
+        return new BigDecimal(String.valueOf(getPrice().multiply(BigDecimal.valueOf(getAmount()))));
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Item item)) return false;
-        return Objects.equals(getId(), item.getId()) && Objects.equals(getNome(), item.getNome()) && Objects.equals(getPreco(), item.getPreco()) && Objects.equals(getQuantidade(), item.getQuantidade()) && Objects.equals(getOrder(), item.getOrder());
+        return Objects.equals(getId(), item.getId()) && Objects.equals(getName(), item.getName()) && Objects.equals(getPrice(), item.getPrice()) && Objects.equals(getAmount(), item.getAmount()) && Objects.equals(getOrder(), item.getOrder());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId());
     }
+
 }

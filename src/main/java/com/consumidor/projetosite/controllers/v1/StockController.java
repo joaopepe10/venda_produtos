@@ -37,7 +37,7 @@ public class StockController {
     @PatchMapping("/adiciona")
     public String saveNewItem(@RequestBody StockDto dto){
         Stock stock = stockServiceIMPL.saveItem(dto);
-        return "Salvo com sucesso o item na categoria " + stock.getCategoria();
+        return "Salvo com sucesso o item na categoria " + stock.getCategory();
     }
 
     @PatchMapping("/adiciona-item")

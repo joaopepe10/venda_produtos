@@ -25,6 +25,7 @@ public class StockServiceIMPL implements StockService {
     public Stock save(Stock stock){
         return stockRepository.save(stock);
     }
+
     @Transactional
     public Stock saveItem(StockDto dto){
        Item item = new Item(dto.getItem());
@@ -32,7 +33,7 @@ public class StockServiceIMPL implements StockService {
                 .findById(dto.getId())
                 .orElseThrow(()-> new BusnissesRulesException("Codigo de estoque invalido!"));
         itemRepository.save(item);
-        stock.getProdutos().add(item);
+        stock.getProducts().add(item);
     return stockRepository.save(stock);
     }
 
@@ -44,9 +45,9 @@ public class StockServiceIMPL implements StockService {
         Item item = itemRepository
                 .findById(dto.getItem().getId())
                 .orElseThrow(()-> new BusnissesRulesException("Codigo do item invalido!"));
-        item.setQuantidade(item.getQuantidade() + dto.getItem().getQuantidade());
+        item.setAmount(item.getAmount() + dto.getItem().getQuantidade());
         item.getStocks().add(stock);
-        stock.getProdutos().add(item);
+        stock.getProducts().add(item);
         itemRepository.save(item);
         return stockRepository.save(stock);
     }
