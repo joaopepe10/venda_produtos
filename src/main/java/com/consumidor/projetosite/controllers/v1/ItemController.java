@@ -35,6 +35,10 @@ public class ItemController {
                         @RequestBody Item item){
         itemServiceIMPL.update(id, item);
     }
+    @GetMapping("/{id}")
+    public ItemDto findById(@PathVariable Long id){
+        return itemServiceIMPL.findById(id);
+    }
 
     @PostMapping()
     public @ResponseBody Item save(@RequestBody ItemDto item){
