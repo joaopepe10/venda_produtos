@@ -1,7 +1,6 @@
-package com.consumidor.projetosite.dto;
+package com.consumidor.projetosite.dto.request;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 /**
  *
@@ -18,9 +17,8 @@ import java.util.List;
  * } *
 */
 
-public class OrderDto {
+public class OrderRequest {
 
     private Long cliente;
     private BigDecimal total;
-    private List<ProductsDto> produtos;
 }

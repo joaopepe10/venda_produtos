@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.models;
 
-import com.consumidor.projetosite.dto.ItemDto;
+import com.consumidor.projetosite.dto.request.ItemRequest;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -53,7 +53,7 @@ public class Item implements Serializable {
     @JsonIgnore
     private Order order;
 
-    public Item(ItemDto dto){
+    public Item(ItemRequest dto){
         this.name = dto.getNome();
         this.price = dto.getPreco();
         this.amount = 0L;

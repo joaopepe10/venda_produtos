@@ -1,7 +1,6 @@
 package com.consumidor.projetosite.models;
 
-import com.consumidor.projetosite.dto.ItemAmountDto;
-import com.consumidor.projetosite.dto.StockDto;
+import com.consumidor.projetosite.dto.request.ItemAmountRequest;
 import com.consumidor.projetosite.enums.CategoryENUM;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -52,7 +51,7 @@ public class Stock implements Serializable {
         products.addAll(items);
     }
 
-    public void changeAmount(ItemAmountDto item){
+    public void changeAmount(ItemAmountRequest item){
         for (Item i : this.products){
             if (i.getId().equals(item.getId())){
                 i.setAmount(i.getAmount() + item.getQuantidade());

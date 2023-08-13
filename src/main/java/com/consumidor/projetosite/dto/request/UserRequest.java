@@ -32,14 +32,21 @@ public class UserRequest {
     private String cpf;
 
     @NotEmpty(message = "Campo nome obrigatorio")
-    @NotNull(message = "Campo nome nulo")
     private String name;
+
+    @NotEmpty(message = "Campo sobrenome obrigatorio")
     private String lastName;
+
     private Short day;
+
     private Short month;
+
     private Short year;
+
+    @NotEmpty(message = "Campo email obrigatorio")
     private String email;
+
+    @NotEmpty(message = "Campo senha obrigatorio")
     private String password;
-    private Short age;
 
 }

@@ -1,9 +1,8 @@
 package com.consumidor.projetosite.controllers.v1;
 
 
-import com.consumidor.projetosite.dto.ItemAmountDto;
-import com.consumidor.projetosite.dto.StockDto;
-import com.consumidor.projetosite.dto.StockItemAmountDto;
+import com.consumidor.projetosite.dto.request.ItemAmountRequest;
+import com.consumidor.projetosite.dto.request.StockItemAmountRequest;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
 import com.consumidor.projetosite.repositories.StockRepository;
@@ -41,7 +40,7 @@ public class StockController {
     }
 
     @PatchMapping("/adiciona-item")
-    public Stock saveItemWithRelation(@RequestBody StockItemAmountDto dto){
+    public Stock saveItemWithRelation(@RequestBody StockItemAmountRequest dto){
         return stockServiceIMPL.saveItemWithRelation(dto);
     }
 
@@ -51,7 +50,7 @@ public class StockController {
     }
 
     @PatchMapping("/{id}")
-    public Item changeAmount(@RequestBody ItemAmountDto item, @PathVariable Long id){
+    public Item changeAmount(@RequestBody ItemAmountRequest item, @PathVariable Long id){
         return stockServiceIMPL.changeAmount(item, id);
     }
 }

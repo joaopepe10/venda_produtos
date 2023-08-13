@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.controllers.v1;
 
-import com.consumidor.projetosite.dto.ItemDto;
+import com.consumidor.projetosite.dto.request.ItemRequest;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.services.impl.ItemServiceIMPL;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,17 +36,17 @@ public class ItemController {
         itemServiceIMPL.update(id, item);
     }
     @GetMapping("/{id}")
-    public ItemDto findById(@PathVariable Long id){
+    public ItemRequest findById(@PathVariable Long id){
         return itemServiceIMPL.findById(id);
     }
 
     @PostMapping()
-    public @ResponseBody Item save(@RequestBody ItemDto item){
+    public @ResponseBody Item save(@RequestBody ItemRequest item){
         return itemServiceIMPL.save(item);
     }
 
     @PostMapping("/salvar")
-    public List<Item> items(@RequestBody List<ItemDto> items){
+    public List<Item> items(@RequestBody List<ItemRequest> items){
         return itemServiceIMPL.saveAll(items);
     }
 

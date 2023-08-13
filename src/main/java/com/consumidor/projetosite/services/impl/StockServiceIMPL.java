@@ -1,8 +1,7 @@
 package com.consumidor.projetosite.services.impl;
 
-import com.consumidor.projetosite.dto.ItemAmountDto;
-import com.consumidor.projetosite.dto.StockDto;
-import com.consumidor.projetosite.dto.StockItemAmountDto;
+import com.consumidor.projetosite.dto.request.ItemAmountRequest;
+import com.consumidor.projetosite.dto.request.StockItemAmountRequest;
 import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
@@ -38,7 +37,7 @@ public class StockServiceIMPL implements StockService {
     }
 
     @Transactional
-    public Stock saveItemWithRelation(StockItemAmountDto dto) {
+    public Stock saveItemWithRelation(StockItemAmountRequest dto) {
         Stock stock = stockRepository
                 .findById(dto.getId())
                 .orElseThrow(() -> new BusnissesRulesException("Codigo do estoque invalido!"));
@@ -55,7 +54,7 @@ public class StockServiceIMPL implements StockService {
     public List<Stock> findAll(){
         return stockRepository.findAll();
     }
-    public Item changeAmount(ItemAmountDto item, Long id) {
+    public Item changeAmount(ItemAmountRequest item, Long id) {
         Stock entity = stockRepository.findById(id)
                 .orElseThrow(() -> new BusnissesRulesException("Codigo de estoque invalido!"));
         entity.changeAmount(item);

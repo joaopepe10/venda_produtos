@@ -1,4 +1,4 @@
-package com.consumidor.projetosite.dto;
+package com.consumidor.projetosite.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemAmountDto {
+public class ItemAmountRequest {
     private Long id;
     private Long quantidade;
 }
