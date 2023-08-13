@@ -1,8 +1,11 @@
 package com.consumidor.projetosite.dto.request;
 
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CPF;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -23,7 +26,11 @@ import java.time.Period;
 @AllArgsConstructor
 @Data
 public class UserRequest {
+    @CPF(message = "Cpf invalido")
     private String cpf;
+
+    @NotEmpty(message = "Campo nome obrigatorio")
+    @NotNull(message = "Campo nome nulo")
     private String name;
     private String lastName;
     private Short day;

@@ -40,8 +40,6 @@ n
 Dockerfile,6\6\6651ddff6eb82c840ced7c1dddee15c6e1913dd4
 {
 Ksrc/main/java/com/consumidor/projetosite/controllers/v1/HomeController.java,0\1\0164a3dd3bb09e37ba1084590966431b2fb5e466
-y
-Isrc/main/java/com/consumidor/projetosite/repositories/UserRepository.java,3\9\3909633464e58cf2e1cbfea0bc17c71aed3f501a
 o
 ?src/main/java/com/consumidor/projetosite/config/TestConfig.java,8\0\80358cdbf796237d013380a564fc466bd7afc6ba
 y
@@ -84,8 +82,6 @@ Bsrc/main/java/com/consumidor/projetosite/services/ItemService.java,d\5\d59c6c2
 Lsrc/main/java/com/consumidor/projetosite/controllers/v1/StockController.java,8\d\8da905f0b748ad28d9747e5a2d527d6543d6569e
 i
 9src/main/java/com/consumidor/projetosite/dto/ItemDto.java,e\d\ed6db2b0f04a70dd6bcdbf3daae9242305d96246
-v
-Fsrc/main/java/com/consumidor/projetosite/models/attributes/Adress.java,5\2\52c08966a9e85972bfd1f5126bcbd0c2b972517a
 j
 :src/main/java/com/consumidor/projetosite/models/Stock.java,d\d\dd935265b5e1aefec154e4bf3c6dec6f0320bfb3
 |
@@ -96,8 +92,6 @@ z
 Jsrc/main/java/com/consumidor/projetosite/repositories/StockRepository.java,8\e\8e1c61eecefdd79aaeed0678c9259abcf286de86
 w
 Gsrc/main/java/com/consumidor/projetosite/dto/response/UserResponse.java,a\b\ab62e03a53c141268d5e95e0a77aa072250a04c8
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 w
 G.idea/sonarlint/issuestore/3/a/3a0b674dfe27d1400a68b650e44345f3d6719475,4\4\44f77f328e684fdb9aae36fe9109a709c710049a
 Å

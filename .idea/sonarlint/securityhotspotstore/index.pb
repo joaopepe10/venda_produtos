@@ -40,8 +40,6 @@ Q.idea/sonarlint/securityhotspotstore/0/6/06f65155ec73600b9fc5c4dc2883d4bb84d8e2
 Q.idea/sonarlint/securityhotspotstore/9/6/96bd2dc965a18db2b8800c7ed212ed4e8c7e0091,e\4\e476f3f3d6e907fb67ff9927436432b245f72c5b
 {
 Ksrc/main/java/com/consumidor/projetosite/controllers/v1/HomeController.java,0\1\0164a3dd3bb09e37ba1084590966431b2fb5e466
-y
-Isrc/main/java/com/consumidor/projetosite/repositories/UserRepository.java,3\9\3909633464e58cf2e1cbfea0bc17c71aed3f501a
 o
 ?src/main/java/com/consumidor/projetosite/config/TestConfig.java,8\0\80358cdbf796237d013380a564fc466bd7afc6ba
 z
@@ -80,8 +78,6 @@ j
 :src/main/java/com/consumidor/projetosite/dto/StockDto.java,5\0\50711838c034a2d131439df9f08d1ec2d1f6a2d6
 r
 Bsrc/main/java/com/consumidor/projetosite/services/ItemService.java,d\5\d59c6c278c1311b2a05567179ddfe3eabb61259a
-v
-Fsrc/main/java/com/consumidor/projetosite/models/attributes/Adress.java,5\2\52c08966a9e85972bfd1f5126bcbd0c2b972517a
 |
 Lsrc/main/java/com/consumidor/projetosite/services/impl/StockServiceIMPL.java,f\7\f713580121cfc276e28eccbe4de99a7d633f9884
 |
@@ -96,8 +92,6 @@ z
 Jsrc/main/java/com/consumidor/projetosite/repositories/StockRepository.java,8\e\8e1c61eecefdd79aaeed0678c9259abcf286de86
 3
 cls,a\3\a30d80b2d90928ad58df49afc97d32a54c5a3be1
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 w
 G.idea/sonarlint/issuestore/3/a/3a0b674dfe27d1400a68b650e44345f3d6719475,4\4\44f77f328e684fdb9aae36fe9109a709c710049a
 Å
