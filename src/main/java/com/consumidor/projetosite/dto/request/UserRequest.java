@@ -9,6 +9,7 @@ import java.time.Period;
 
 /*
 * {
+*   "cpf" : 111.222.333-44
     "name" : "Joao Pedro",
     "lastName" : " Pires Barcante",
     "day" : 28,
@@ -22,6 +23,7 @@ import java.time.Period;
 @AllArgsConstructor
 @Data
 public class UserRequest {
+    private String cpf;
     private String name;
     private String lastName;
     private Short day;
@@ -30,10 +32,9 @@ public class UserRequest {
     private String email;
     private String password;
 
-
-    private Integer calculaIdade(Integer dia, Integer mes, Integer ano){
-        LocalDate dataAtual = LocalDate.now();
-        LocalDate dataNascimento = LocalDate.of(ano, mes, dia);
-        return Period.between(dataNascimento, dataAtual).getYears();
+    private Integer calculateAge(Integer day, Integer month, Integer year){
+        LocalDate dateNow = LocalDate.now();
+        LocalDate birthDay = LocalDate.of(year, month, day);
+        return Period.between(birthDay, dateNow).getYears();
     }
 }

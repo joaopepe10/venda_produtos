@@ -15,8 +15,7 @@ public class UserController {
 
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
-    public UserResponse createUser(@RequestBody UserRequest dto){
-        userServiceIMPL.save(dto);
-        return new UserResponse(dto);
+    public String createUser(@RequestBody UserRequest dto){
+        return userServiceIMPL.save(dto);
     }
 }
