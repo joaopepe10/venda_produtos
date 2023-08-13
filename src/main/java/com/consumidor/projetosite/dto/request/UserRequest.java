@@ -26,7 +26,9 @@ import java.time.Period;
 @AllArgsConstructor
 @Data
 public class UserRequest {
-    @CPF(message = "Cpf invalido")
+
+    @NotEmpty(message = "Campo CPF obrigatorio")
+    @CPF(message = "CPF invalido")
     private String cpf;
 
     @NotEmpty(message = "Campo nome obrigatorio")
@@ -38,10 +40,6 @@ public class UserRequest {
     private Short year;
     private String email;
     private String password;
+    private Short age;
 
-    private Integer calculateAge(Integer day, Integer month, Integer year){
-        LocalDate dateNow = LocalDate.now();
-        LocalDate birthDay = LocalDate.of(year, month, day);
-        return Period.between(birthDay, dateNow).getYears();
-    }
 }

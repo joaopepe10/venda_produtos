@@ -10,6 +10,8 @@ import org.hibernate.validator.constraints.br.CPF;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Objects;
 
 @Entity
@@ -25,8 +27,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 14)
-    @CPF()
+    @Column(length = 11)
     private String cpf;
 
     @Column(name = "name",length = 100)
@@ -46,6 +47,7 @@ public class User implements Serializable {
     private Short birthMonth;
 
     private Short birthYear;
+    private Short age;
 
     @Embedded
     private Adress adress;
@@ -59,6 +61,13 @@ public class User implements Serializable {
         this.birthYear = dto.getYear();
         this.email = dto.getEmail();
         this.password = dto.getPassword();
+        this.age = calculateAge(birthDay, birthMonth, birthYear);
+    }
+
+    private Short calculateAge(Short day, Short month, Short year){
+        LocalDate dateNow = LocalDate.now();
+        LocalDate birthDay = LocalDate.of(year, month, day);
+        return (short) Period.between(birthDay, dateNow).getYears();
     }
     @Override
     public boolean equals(Object o) {
