@@ -53,11 +53,7 @@ public class ItemServiceIMPL implements ItemService {
         itemRepository.deleteById(id);
     }
 
-    private Item convertToItem(ItemDto dto){
-        return new Item(dto);
-    }
-
-    private List<Item> convertToItem(List<ItemDto> dto){
+        private List<Item> convertToItem(List<ItemDto> dto){
         List<Item> items = new ArrayList<>();
         for (ItemDto item : dto) {
             Item item1 = new Item(item.getNome(), item.getPreco());
