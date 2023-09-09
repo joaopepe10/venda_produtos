@@ -56,9 +56,13 @@ public class ItemController {
         return itemServiceIMPL.save(item);
     }
 
-    @PostMapping("/salvar")
+    @PostMapping("/salvar-varios")
     public List<Item> items(@RequestBody List<ItemDto> items){
         return itemServiceIMPL.saveAll(items);
     }
 
+    @PostMapping("/salvar-um")
+    public Item saveOne(@RequestBody ItemDto dto){
+        return itemServiceIMPL.save(dto);
+    }
 }
