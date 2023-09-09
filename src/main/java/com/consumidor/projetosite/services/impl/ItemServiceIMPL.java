@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemServiceIMPL implements ItemService {
@@ -34,6 +35,13 @@ public class ItemServiceIMPL implements ItemService {
                orElseThrow(() -> new BusnissesRulesException("ID invalido!"));
         return new ItemDto(entity);
     }
+
+    public List<ItemDto> findAll(){
+        List<ItemDto> dtoList = new ArrayList<>();
+        itemRepository.findAll().stream()
+                .forEach(item -> dtoList.add( new ItemDto(item)));
+        return dtoList;
+    }
     public void update(Long id, Item i){
         itemRepository.findById(id)
                 .ifPresent(itens -> {
@@ -41,8 +49,8 @@ public class ItemServiceIMPL implements ItemService {
                     itemRepository.save(i);
                 });
     }
-    public void delete(Item item){
-        itemRepository.delete(item);
+    public void deleteById(Long id){
+        itemRepository.deleteById(id);
     }
 
     private Item convertToItem(ItemDto dto){

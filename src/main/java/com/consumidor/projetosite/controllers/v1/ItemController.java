@@ -36,6 +36,21 @@ public class ItemController {
         itemServiceIMPL.update(id, item);
     }
 
+    @GetMapping("/{id}")
+    public ItemDto findById(@PathVariable Long id){
+        return itemServiceIMPL.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id){
+        itemServiceIMPL.deleteById(id);
+    }
+
+    @GetMapping("/")
+    public List<ItemDto> findAll(){
+        return itemServiceIMPL.findAll();
+    }
+
     @PostMapping()
     public @ResponseBody Item save(@RequestBody ItemDto item){
         return itemServiceIMPL.save(item);

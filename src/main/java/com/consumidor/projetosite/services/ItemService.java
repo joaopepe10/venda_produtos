@@ -12,5 +12,5 @@ public interface ItemService {
     List<Item> saveAll(List<ItemDto> dtos);
     ItemDto findById(Long id);
     void update(Long id, Item i);
-    void delete(Item item);
+    void deleteById(Long id);
 }

@@ -8,7 +8,6 @@ import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
 import com.consumidor.projetosite.repositories.StockRepository;
 import com.consumidor.projetosite.services.impl.StockServiceIMPL;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
