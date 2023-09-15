@@ -172,8 +172,6 @@ i
 9src/main/java/com/consumidor/projetosite/models/Item.java,e\a\ea5f8fa8160737c1fefa7f76de996499de4d0540
 y
 Isrc/main/java/com/consumidor/projetosite/repositories/ItemRepository.java,4\3\43ca0aeb076847345ed1a1087839bba68a633325
-{
-Ksrc/main/java/com/consumidor/projetosite/controllers/v1/ItemController.java,c\e\ce220e990fce142ea39d04c6f0699afbf14cfc15
 |
 Lsrc/main/java/com/consumidor/projetosite/services/impl/OrderServiceIMPL.java,4\6\46088197765741369589c984f97e950f63df6756
 {

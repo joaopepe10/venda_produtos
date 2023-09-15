@@ -166,8 +166,6 @@ j
 :src/main/java/com/consumidor/projetosite/models/Order.java,d\7\d7f6afde487c7ee08c7d4f9a8bc500737e848435
 v
 Fsrc/main/java/com/consumidor/projetosite/models/attributes/Adress.java,5\2\52c08966a9e85972bfd1f5126bcbd0c2b972517a
-{
-Ksrc/main/java/com/consumidor/projetosite/controllers/v1/ItemController.java,c\e\ce220e990fce142ea39d04c6f0699afbf14cfc15
 i
 9src/main/java/com/consumidor/projetosite/models/Item.java,e\a\ea5f8fa8160737c1fefa7f76de996499de4d0540
 y
