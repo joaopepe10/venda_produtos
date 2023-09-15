@@ -1,6 +1,7 @@
 package com.consumidor.projetosite.services.impl;
 
 import com.consumidor.projetosite.dto.request.ItemAmountRequest;
+import com.consumidor.projetosite.dto.request.StockRequest;
 import com.consumidor.projetosite.dto.request.StockItemAmountRequest;
 import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.Item;
@@ -26,7 +27,7 @@ public class StockServiceIMPL implements StockService {
     }
 
     @Transactional
-    public Stock saveItem(StockDto dto){
+    public Stock saveItem(StockRequest dto){
        Item item = new Item(dto.getItem());
         Stock stock = stockRepository
                 .findById(dto.getId())

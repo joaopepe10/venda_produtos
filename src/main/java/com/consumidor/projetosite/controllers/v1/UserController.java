@@ -22,17 +22,17 @@ public class UserController {
     @PostMapping("/cadastrar")
     @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody @Valid UserRequest dto){
-        User user = new User(dto);
-        return userRepository.save(user);
+        return userServiceIMPL.save(dto);
     }
 
-    @GetMapping("/{cpf}")
-    public User findByCpf(@PathVariable String cpf){
-        return userServiceIMPL.findByCpf(cpf);
+    @GetMapping("/{id}")
+    public User findByCpf(@PathVariable Long id){
+        return userServiceIMPL.findById(id);
     }
 
-    @PatchMapping("/edita/endereco/{id}")
-    public ResponseEntity<Adress> updateAdress(@PathVariable Long id, @RequestBody Adress adress){
+    @PatchMapping("/cadastrar/endereco/{id}")
+    public ResponseEntity<Adress> updateAdress(@PathVariable  Long id,
+                                               @RequestBody @Valid Adress adress){
         return new ResponseEntity<>(userServiceIMPL.updadeAdress(id, adress), HttpStatus.ACCEPTED);
     }
 }

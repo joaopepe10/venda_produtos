@@ -3,10 +3,9 @@ package com.consumidor.projetosite.models;
 import com.consumidor.projetosite.dto.request.UserRequest;
 import com.consumidor.projetosite.models.attributes.Adress;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import lombok.*;
-import org.hibernate.validator.constraints.br.CPF;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;

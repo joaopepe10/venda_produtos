@@ -5,7 +5,6 @@ import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.User;
 import com.consumidor.projetosite.models.attributes.Adress;
 import com.consumidor.projetosite.repositories.UserRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +13,9 @@ public class UserServiceIMPL {
     @Autowired
     private UserRepository userRepository;
 
-    public User findByCpf(String cpf){
-        return userRepository.findByCpf(cpf)
-                .orElseThrow(()-> new BusnissesRulesException("Codigo de cliente invalido!"));
+    public User findById(Long id){
+        return userRepository.findById(id)
+                .orElseThrow(() -> new BusnissesRulesException("Codigo de cliente invalido!"));
     }
     public User save(UserRequest dto) {
         User user = new User(dto);

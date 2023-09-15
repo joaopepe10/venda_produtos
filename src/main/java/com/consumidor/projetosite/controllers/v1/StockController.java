@@ -2,6 +2,7 @@ package com.consumidor.projetosite.controllers.v1;
 
 
 import com.consumidor.projetosite.dto.request.ItemAmountRequest;
+import com.consumidor.projetosite.dto.request.StockRequest;
 import com.consumidor.projetosite.dto.request.StockItemAmountRequest;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
@@ -34,7 +35,7 @@ public class StockController {
     }
 
     @PatchMapping("/adiciona")
-    public String saveNewItem(@RequestBody StockDto dto){
+    public String saveNewItem(@RequestBody StockRequest dto){
         Stock stock = stockServiceIMPL.saveItem(dto);
         return "Salvo com sucesso o item na categoria " + stock.getCategory();
     }
