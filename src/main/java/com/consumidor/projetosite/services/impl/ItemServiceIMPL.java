@@ -1,7 +1,7 @@
 package com.consumidor.projetosite.services.impl;
 
 
-import com.consumidor.projetosite.dto.request.ItemRequest;
+import com.consumidor.projetosite.dto.request.item.ItemRequest;
 import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.repositories.ItemRepository;
@@ -52,7 +52,7 @@ public class ItemServiceIMPL implements ItemService {
     private List<Item> convertToItem(List<ItemRequest> dto){
         List<Item> items = new ArrayList<>();
         for (ItemRequest item : dto) {
-            Item item1 = new Item(item.getNome(), item.getPreco());
+            Item item1 = new Item(item.getName(), item.getPrice());
             items.add(item1);
         }
         return items;

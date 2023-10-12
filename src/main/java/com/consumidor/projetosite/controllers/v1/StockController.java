@@ -1,9 +1,10 @@
 package com.consumidor.projetosite.controllers.v1;
 
 
-import com.consumidor.projetosite.dto.request.ItemAmountRequest;
-import com.consumidor.projetosite.dto.request.StockRequest;
-import com.consumidor.projetosite.dto.request.StockItemAmountRequest;
+import com.consumidor.projetosite.dto.request.item.ItemAmountRequest;
+import com.consumidor.projetosite.dto.request.stock.StockRequest;
+import com.consumidor.projetosite.dto.request.stock.StockRequestItem;
+import com.consumidor.projetosite.dto.request.stock.StockItemAmountRequest;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
 import com.consumidor.projetosite.repositories.StockRepository;
@@ -30,27 +31,32 @@ public class StockController {
     }
 
     @PostMapping("/salvar")
-    public List<Stock> saveAll(@RequestBody List<Stock> stocks){
-        return stockServiceIMPL.saveAll(stocks);
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Stock> saveAll(@RequestBody List<StockRequest> dtos){
+        return stockServiceIMPL.saveAll(dtos);
     }
 
     @PatchMapping("/adiciona")
-    public String saveNewItem(@RequestBody StockRequest dto){
+    @ResponseStatus(HttpStatus.OK)
+    public String saveNewItem(@RequestBody StockRequestItem dto){
         Stock stock = stockServiceIMPL.saveItem(dto);
         return "Salvo com sucesso o item na categoria " + stock.getCategory();
     }
 
     @PatchMapping("/adiciona-item")
+    @ResponseStatus(HttpStatus.OK)
     public Stock saveItemWithRelation(@RequestBody StockItemAmountRequest dto){
         return stockServiceIMPL.saveItemWithRelation(dto);
     }
 
     @GetMapping()
+    @ResponseStatus(HttpStatus.OK)
     public List<Stock> findAll(){
         return stockServiceIMPL.findAll();
     }
 
     @PatchMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public Item changeAmount(@RequestBody ItemAmountRequest item, @PathVariable Long id){
         return stockServiceIMPL.changeAmount(item, id);
     }

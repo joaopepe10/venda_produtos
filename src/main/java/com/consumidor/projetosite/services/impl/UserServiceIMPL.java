@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.services.impl;
 
-import com.consumidor.projetosite.dto.request.UserRequest;
+import com.consumidor.projetosite.dto.request.user.UserRequest;
 import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.User;
 import com.consumidor.projetosite.models.attributes.Adress;

@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.services;
 
-import com.consumidor.projetosite.dto.request.ItemRequest;
+import com.consumidor.projetosite.dto.request.item.ItemRequest;
 import com.consumidor.projetosite.models.Item;
 
 import java.util.List;

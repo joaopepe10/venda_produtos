@@ -1,7 +1,8 @@
 package com.consumidor.projetosite.models;
 
-import com.consumidor.projetosite.dto.request.ItemAmountRequest;
-import com.consumidor.projetosite.dto.request.StockRequest;
+import com.consumidor.projetosite.dto.request.item.ItemAmountRequest;
+import com.consumidor.projetosite.dto.request.stock.StockRequest;
+import com.consumidor.projetosite.dto.request.stock.StockRequestItem;
 import com.consumidor.projetosite.enums.CategoryENUM;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -35,13 +36,16 @@ public class Stock implements Serializable {
     @ManyToMany(mappedBy = "stocks")
     private List<Item> products = new ArrayList<>();
 
-    public Stock(Long id, CategoryENUM category){
+    public Stock(CategoryENUM category){
         this.category = category;
     }
-    public Stock(StockRequest dto){
+    public Stock(StockRequestItem dto){
         Item item = new Item(dto.getItem());
         this.id = dto.getId();
         this.products.add(item);
+    }
+    public Stock(StockRequest dto){
+        this.category = dto.getCategory();
     }
 
     public void saveItem(Item item){
@@ -58,6 +62,11 @@ public class Stock implements Serializable {
                 i.setAmount(i.getAmount() + item.getQuantidade());
             }
         }
+    }
+    public List<Stock> castingDtoAll(List<StockRequest> requests){
+        List<Stock> stocks = new ArrayList<>();
+        requests.forEach(r -> stocks.add(new Stock(r)));
+        return stocks;
     }
 
     public Boolean cointainsItem(Item item){

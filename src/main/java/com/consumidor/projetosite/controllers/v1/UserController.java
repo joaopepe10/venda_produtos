@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.controllers.v1;
 
-import com.consumidor.projetosite.dto.request.UserRequest;
+import com.consumidor.projetosite.dto.request.user.UserRequest;
 import com.consumidor.projetosite.models.User;
 import com.consumidor.projetosite.models.attributes.Adress;
 import com.consumidor.projetosite.repositories.UserRepository;

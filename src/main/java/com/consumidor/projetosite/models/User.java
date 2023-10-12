@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.models;
 
-import com.consumidor.projetosite.dto.request.UserRequest;
+import com.consumidor.projetosite.dto.request.user.UserRequest;
 import com.consumidor.projetosite.models.attributes.Adress;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

@@ -1,8 +1,9 @@
 package com.consumidor.projetosite.services.impl;
 
-import com.consumidor.projetosite.dto.request.ItemAmountRequest;
-import com.consumidor.projetosite.dto.request.StockRequest;
-import com.consumidor.projetosite.dto.request.StockItemAmountRequest;
+import com.consumidor.projetosite.dto.request.item.ItemAmountRequest;
+import com.consumidor.projetosite.dto.request.stock.StockRequest;
+import com.consumidor.projetosite.dto.request.stock.StockRequestItem;
+import com.consumidor.projetosite.dto.request.stock.StockItemAmountRequest;
 import com.consumidor.projetosite.exception.BusnissesRulesException;
 import com.consumidor.projetosite.models.Item;
 import com.consumidor.projetosite.models.Stock;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,7 +29,7 @@ public class StockServiceIMPL implements StockService {
     }
 
     @Transactional
-    public Stock saveItem(StockRequest dto){
+    public Stock saveItem(StockRequestItem dto){
        Item item = new Item(dto.getItem());
         Stock stock = stockRepository
                 .findById(dto.getId())
@@ -64,7 +66,9 @@ public class StockServiceIMPL implements StockService {
                 .findById(item.getId())
                 .orElseThrow(() -> new BusnissesRulesException("Codigo de item invalido!"));
     }
-    public List<Stock> saveAll(List<Stock> stocks) {
+    public List<Stock> saveAll(List<StockRequest> dtos) {
+        List<Stock> stocks = new ArrayList<>();
+        dtos.forEach(d -> stocks.add(new Stock(d)));
         return stockRepository.saveAll(stocks);
     }
 

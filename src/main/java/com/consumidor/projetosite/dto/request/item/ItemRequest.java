@@ -1,4 +1,4 @@
-package com.consumidor.projetosite.dto.request;
+package com.consumidor.projetosite.dto.request.item;
 
 import com.consumidor.projetosite.models.Item;
 import jakarta.validation.constraints.NotEmpty;
@@ -12,14 +12,13 @@ import java.math.BigDecimal;
 @Data
 public class ItemRequest {
    @NotEmpty(message = "Campo nome obrigatorio")
-   private String nome;
+   private String name;
 
    @NotNull(message = "Campo preco obrigatorio")
-   private BigDecimal preco;
-
+   private BigDecimal price ;
 
    public ItemRequest(Item item){
-      this.nome = item.getName();
-      this.preco = item.getPrice();
+      this.name = item.getName();
+      this.price = item.getPrice();
    }
 }

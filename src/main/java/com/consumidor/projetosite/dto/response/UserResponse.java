@@ -1,6 +1,6 @@
 package com.consumidor.projetosite.dto.response;
 
-import com.consumidor.projetosite.dto.request.UserRequest;
+import com.consumidor.projetosite.dto.request.user.UserRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

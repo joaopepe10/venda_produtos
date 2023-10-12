@@ -1,4 +1,4 @@
-package com.consumidor.projetosite.dto.request;
+package com.consumidor.projetosite.dto.request.user;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;

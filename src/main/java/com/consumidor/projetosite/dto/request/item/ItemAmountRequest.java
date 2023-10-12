@@ -1,4 +1,4 @@
-package com.consumidor.projetosite.dto.request;
+package com.consumidor.projetosite.dto.request.item;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

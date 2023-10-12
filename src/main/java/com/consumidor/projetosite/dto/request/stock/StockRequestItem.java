@@ -1,6 +1,6 @@
-package com.consumidor.projetosite.dto.request;
+package com.consumidor.projetosite.dto.request.stock;
 
-import com.consumidor.projetosite.dto.request.ItemRequest;
+import com.consumidor.projetosite.dto.request.item.ItemRequest;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StockRequest {
+public class StockRequestItem {
     private Long id;
     private ItemRequest item;
 }
